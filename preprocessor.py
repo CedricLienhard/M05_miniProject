@@ -6,9 +6,6 @@ Created on Fri Feb 17 20:33:56 2023
 """
 from sklearn import preprocessing
 
-
-
-
 def normalize_minMaxScaler(data_to_process):
     min_max_scaler = preprocessing.MinMaxScaler()
     processedData = min_max_scaler.fit_transform(data_to_process)
