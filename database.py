@@ -8,6 +8,8 @@ import numpy as np
 
 import pandas as pd
 
+import os
+
 from sklearn.model_selection import train_test_split
 
 PROTOCOLS = {
@@ -33,19 +35,29 @@ VARIABLES = [
         ]
 
 def load_data(dataset_config):
-    with open(dataset_config, 'rt') as f:
-        lines = f.readlines()
-        data = []
-        for line in lines:
-            fields = line.split()
-            data.append([float(x) for x in fields])
-    data = np.array(data)
-    boston_dataset = {}
-    j = 0
-    for i in VARIABLES :
-        boston_dataset[i] = data[:, j]
-        j += 1   
-    return data, boston_dataset
+	
+	# Get the absolute path of the script
+	script_path = os.path.abspath(__file__)
+
+	# Get the directory containing the script
+	script_dir = os.path.dirname(script_path)
+
+	# Get the path of the dataset
+	file_path = os.path.join(script_dir, dataset_config)
+	
+	with open(file_path, 'rt') as f:
+		lines = f.readlines()
+		data = []
+		for line in lines:
+			fields = line.split()
+			data.append([float(x) for x in fields])
+		data = np.array(data)
+		boston_dataset = {}
+		j = 0
+		for i in VARIABLES :
+			boston_dataset[i] = data[:, j]
+			j += 1   
+	return data, boston_dataset
  
 def get(datasetPath, protocol):
     raw_data, boston_dataset = load_data(datasetPath)
