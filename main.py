@@ -11,6 +11,8 @@ import configparser
 
 import database
 import preprocessor
+import algorithm
+import analysis
 
 
 def get_info_from_user():
@@ -51,6 +53,9 @@ if __name__ == '__main__':
     data = database.load_data(dataset_config)
     X_train, X_test, Y_train, Y_test = database.get(dataset_config, protocol_config)
     X_train_norm = preprocessor.apply_selected_preprocessing(preprocessing_config, X_train)
+    Y_train_predict, Y_test_predict = algorithm.trainMachine(X_train, Y_train, X_test)
+    mae_train, mae_test = analysis.compute_performance(Y_train, Y_train_predict, Y_test, Y_test_predict)
+
     
 
     
