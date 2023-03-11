@@ -69,14 +69,14 @@ jobs:
 					coveralls --service=github 
 
 		coveralls:
-		name: Indicate completion to coveralls.io
-		needs: test
-		runs-on: ${{ matrix.os }}
-		container: python:3-slim
-		steps:
-		- name: Finished
-		  run: |
-			pip3 install --upgrade coveralls
-			coveralls --service=github --finish
-		  env:
-			GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+			name: Indicate completion to coveralls.io
+			needs: test
+			runs-on: ${{ matrix.os }}
+			container: python:3-slim
+			steps:
+			- name: Finished
+			  run: |
+				pip3 install --upgrade coveralls
+				coveralls --service=github --finish
+			  env:
+				GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
