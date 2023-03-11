@@ -21,8 +21,6 @@ jobs:
       matrix:
         python-version: ["3.9", "3.10"]
 
-    runs-on: ${{ matrix.os }} # Configures the job to run on the latest version of each OS defined in the matrix. This means that the job will execute on a fresh virtual machine hosted by GitHub
-
     # Here we define the steps to be undertaken for every test
     # -- Each step does one action.  Code for the action sits in
     # -- another github project (key "uses").  This way, actions
