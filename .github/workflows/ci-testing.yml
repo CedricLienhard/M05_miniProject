@@ -1,6 +1,6 @@
 name: Continuous Integration # Optional - The name of the workflow as it will appear in the "Actions" tab of the GitHub repository. 
 
-run-name: ${{ github.actor }} is learning GitHub Actions # Optional - display the username of the actor that triggered the workflow run. 
+# run-name: ${{ github.actor }} is learning GitHub Actions # Optional - display the username of the actor that triggered the workflow run. 
 
 
 on:  # Define here when your project will be tested
