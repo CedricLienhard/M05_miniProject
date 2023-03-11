@@ -11,7 +11,7 @@ jobs:
   test:
     name: Test on Python ${{ matrix.python-version }} # name of the job
 
-    
+    runs-on: ubuntu-latest # Configures the job to run on the latest version of each OS defined in the matrix. This means that the job will execute on a fresh virtual machine hosted by GitHub
 
     # Here we will define the testing "matrix"
     # -- It can be composed of whatever your matrix may be,
@@ -22,7 +22,7 @@ jobs:
       matrix:
         python-version: ["3.8", "3.9"]
         
-    runs-on: ubuntu-latest # Configures the job to run on the latest version of each OS defined in the matrix. This means that the job will execute on a fresh virtual machine hosted by GitHub
+    
 
     # Here we define the steps to be undertaken for every test
     # -- Each step does one action.  Code for the action sits in
@@ -32,7 +32,7 @@ jobs:
 
       # Action provided by GitHub to checkout (i.e. download) the source code or repository associated with the current workflow run
       - name: Check out repository code # name of the step (is displayed in the Action logs)
-        uses: actions/checkout@v2 # v3 is just a specific version of the "action/checkout" action 
+        uses: actions/checkout@v3 # v3 is just a specific version of the "action/checkout" action 
 
       # Action provided by "conda-incubator" to setup conda env
       - name: Setup miniconda
