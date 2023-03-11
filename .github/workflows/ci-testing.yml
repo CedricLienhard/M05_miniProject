@@ -65,6 +65,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # sets GITHUB_TOKEN environment variable to the value of the secrets.GITHUB_TOKEN. This token is used to authenticate with GitHub #API.
           COVERALLS_FLAG_NAME: ${{ matrix.python-version }} #sets the COVERALLS_FLAG_NAME environment variable. This variable is used to specify the name of the test suite in coveralls.io.
           COVERALLS_PARALLEL: true # sets the COVERALLS_PARALLEL environment variable to true, which enables parallel test execution in coveralls.io.
+
         run: |
           conda info -a
           coveralls --service=github
