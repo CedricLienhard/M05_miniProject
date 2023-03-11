@@ -20,10 +20,9 @@ jobs:
     strategy:
       fail-fast: false  # avoids cancelled builds if the other fails
       matrix:
-      	os: [ubuntu-latest, macos-latest, windows-latest]
         python-version: ["3.8", "3.9"]
         
-    runs-on: ${{ matrix.os }} # Configures the job to run on the latest version of each OS defined in the matrix. This means that the job will execute on a fresh virtual machine hosted by GitHub
+    runs-on: ubuntu-latest # Configures the job to run on the latest version of each OS defined in the matrix. This means that the job will execute on a fresh virtual machine hosted by GitHub
 
     # Here we define the steps to be undertaken for every test
     # -- Each step does one action.  Code for the action sits in
@@ -67,11 +66,10 @@ jobs:
         run: |
           conda info -a
           coveralls --service=github
-          
   coveralls:
     name: Indicate completion to coveralls.io
     needs: test
-    runs-on: ${{ matrix.os }}
+    runs-on: ubuntu-latest
     container: python:3-slim
     steps:
     - name: Finished
