@@ -1,5 +1,4 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
+
 # used to specify the Conda channels from which packages will be downloaded and installed when creating a Conda environment.
 #By default, Conda searches for packages on the defaults channel, which is the official channel maintained by Anaconda Inc. and contains a large collection of popular packages. However, there are other channels available that contain additional packages, custom versions of packages, or experimental packages.
 channels: 
@@ -11,27 +10,9 @@ dependencies:
   - scikit-learn
   - pytest
   - sphinx
-=======
-channels:
-=======
-# used to specify the Conda channels from which packages will be downloaded and installed when creating a Conda environment.
-#By default, Conda searches for packages on the defaults channel, which is the official channel maintained by Anaconda Inc. and contains a large collection of popular packages. However, there are other channels available that contain additional packages, custom versions of packages, or experimental packages.
-channels: 
->>>>>>> 23b33398 (2nd CI implementation test)
-  - defaults
-  
-dependencies:
-  - numpy
-  - pandas
-  - os
-  - scikit-learn
-  - pytest
->>>>>>> a3d96f4a (first continuous integration tests)
   - pytest-cov
   - pip
   - pip:
     - coveralls
-<<<<<<< HEAD
     - sphinx_rtd_theme
-=======
->>>>>>> a3d96f4a (first continuous integration tests)
+
