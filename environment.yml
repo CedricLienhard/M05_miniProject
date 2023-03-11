@@ -1,8 +1,13 @@
-channels:
+# used to specify the Conda channels from which packages will be downloaded and installed when creating a Conda environment.
+#By default, Conda searches for packages on the defaults channel, which is the official channel maintained by Anaconda Inc. and contains a large collection of popular packages. However, there are other channels available that contain additional packages, custom versions of packages, or experimental packages.
+channels: 
   - defaults
+  
 dependencies:
   - numpy
-  - scipy
+  - pandas
+  - os
+  - sklearn
   - pytest
   - pytest-cov
   - pip
