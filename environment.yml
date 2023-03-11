@@ -24,7 +24,7 @@ dependencies:
   - numpy
   - pandas
   - os
-  - sklearn
+  - scikit-learn
   - pytest
 >>>>>>> a3d96f4a (first continuous integration tests)
   - pytest-cov
