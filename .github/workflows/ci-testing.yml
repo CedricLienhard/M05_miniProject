@@ -49,9 +49,6 @@ jobs:
       - name: Run tests
         shell: bash -l {0} # specifies that the bash shell should be used to execute the following commands.
         # 'run: | ' indicates that a multi-line command follows 
-		# 'conda info -a ' prints information about the Conda environment
-		# 'pytest -sv --cov=. test.py' runs the pytest testing framework, which runs the tests in test.py and generates a test coverage report using coverage. The --cov option specifies the
-		# path to the source code to be tested.
         run: |
           conda info -a
           pytest -sv --cov=. test.py
@@ -61,8 +58,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # sets GITHUB_TOKEN environment variable to the value of the secrets.GITHUB_TOKEN. This token is used to authenticate with GitHub #API.
           COVERALLS_FLAG_NAME: ${{ matrix.python-version }} #sets the COVERALLS_FLAG_NAME environment variable. This variable is used to specify the name of the test suite in coveralls.io.
           COVERALLS_PARALLEL: true # sets the COVERALLS_PARALLEL environment variable to true, which enables parallel test execution in coveralls.io.
-		# 'coveralls --service=github '  uploads the test coverage report to the coveralls.io service, which generates a coverage badge and integrates with GitHub pull requests. The -
-		# service=github option specifies that the GitHub service should be used for authentication.
+		
         run: |
           conda info -a
           coveralls --service=github
