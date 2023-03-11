@@ -9,9 +9,9 @@ on:  # Define here when your project will be tested
 
 jobs:
   test:
-    name: Test on Python ${{ matrix.python-version }} # name of the job
+    
 
-    runs-on: ubuntu-latest # Configures the job to run on the latest version of each OS defined in the matrix. This means that the job will execute on a fresh virtual machine hosted by GitHub
+    
 
     # Here we will define the testing "matrix"
     # -- It can be composed of whatever your matrix may be,
@@ -20,9 +20,12 @@ jobs:
     strategy:
       fail-fast: false  # avoids cancelled builds if the other fails
       matrix:
+      	os: [ubuntu-latest, macos-latest, windows-latest]
         python-version: ["3.8", "3.9"]
-        
     
+    runs-on: ${{ matrix.os }} # Configures the job to run on the latest version of each OS defined in the matrix. This means that the job will execute on a fresh virtual machine hosted by GitHub
+        
+    name: Test on Python ${{ matrix.python-version }} # name of the job
 
     # Here we define the steps to be undertaken for every test
     # -- Each step does one action.  Code for the action sits in
