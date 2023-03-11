@@ -69,10 +69,3 @@ def get(datasetPath, protocol):
     return X_train, X_test, Y_train, Y_test
 
 
-'''
-def get(protocol, subset, variables=VARIABLES):
-  retval = split_data(load(), subset, PROTOCOLS[protocol])
-  varindex = [VARIABLES.index(k) for k in variables]
-  retval = dict([(k, retval[k][:,varindex]) for k in classes])
-  return numpy.array([retval[k] for k in classes])
-'''
