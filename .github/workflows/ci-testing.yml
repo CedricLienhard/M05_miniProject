@@ -19,7 +19,6 @@ jobs:
     strategy:
       fail-fast: false  # avoids cancelled builds if the other fails
       matrix:
-
         python-version: ["3.9", "3.10"]
 
     # Here we define the steps to be undertaken for every test
