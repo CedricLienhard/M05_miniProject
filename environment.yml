@@ -6,7 +6,6 @@ channels:
 dependencies:
   - numpy
   - pandas
-  - os
   - scikit-learn
   - pytest
   - pytest-cov
