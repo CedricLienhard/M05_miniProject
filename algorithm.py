@@ -9,15 +9,15 @@ Created on Sat Feb 18 11:36:37 2023
 from sklearn.linear_model import LinearRegression
 
 
-def trainMachine(X_train, Y_train, X_test):
+def train_model(X_train, Y_train):
 
 	# LR model
 	lin_model = LinearRegression()
-	lin_model.fit(X_train, Y_train)
+	trained_model = lin_model.fit(X_train, Y_train)
+	return trained_model
+
+def predict(X, trained_model):
     
-    	#evaluate on training and testing data
-	Y_train_predict = lin_model.predict(X_train)
-	Y_test_predict = lin_model.predict(X_test)
-	
-	return Y_train_predict, Y_test_predict
+    Y = trained_model.predict(X)
+    return Y
 	
