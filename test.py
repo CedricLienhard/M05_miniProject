@@ -14,14 +14,16 @@ def test_MAE():
 	assert mae_test == 0.5
 	
 
-def test_trainMachine():
+def test_predict():
     # Create some sample data
     X_train = np.array([[1, 2], [3, 4], [5, 6]])
     Y_train = np.array([1, 2, 3])
     X_test = np.array([[7, 8], [9, 10]])
     
     # Train the model
-    Y_train_predict, Y_test_predict = algorithm.trainMachine(X_train, Y_train, X_test)
+    trained_model = algorithm.train_model(X_train, Y_train)    
+    Y_train_predict = algorithm.predict(X_train, trained_model)
+    Y_test_predict =  algorithm.predict(X_test, trained_model)
     
     # Check that the output has the correct shape
     assert Y_train_predict.shape == (3,)
@@ -46,8 +48,7 @@ def test_normalize_polynomialFeatures():
     assert np.allclose(preprocessor.normalize_polynomialFeatures(data, 2), expected_output)       
 
 test_MAE()
-test_trainMachine()
-test_trainMachine()
+test_predict()
 test_normalize_minMaxScaler()
 test_normalize_polynomialFeatures()
 
