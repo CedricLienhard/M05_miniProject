@@ -8,6 +8,8 @@ import numpy as np
 
 import pandas as pd
 
+import csv 
+
 import os
 
 from sklearn.model_selection import train_test_split
@@ -17,7 +19,7 @@ PROTOCOLS = {
         'proto2': {'train': 0.5, 'test': 0.2},
         }
 
-VARIABLES = [
+VARIABLES_BH = [
         'CRIM',
         'ZN',
         'INDUS',
@@ -33,6 +35,20 @@ VARIABLES = [
         'LSTAT',
         'MEDV',
         ]
+VARIABLES_WQ = [
+	'FA',   # fixed acidity
+	'VA',   # volatile acidity
+	'CA',   # citric acid
+	'RS',   # residual sugar
+	'CHL',  # chlorides
+	'FSD',  # free sulfur dioxide
+	'TSD',  # total sulfur dioxide
+	'DENS', # density
+	'PH',   # pH
+	'SULP', # sulphates 
+	'ALC',  # alcohol
+	'QLT'   # quality
+        ]
 
 def load_data(dataset_config):
 	
@@ -45,27 +61,47 @@ def load_data(dataset_config):
 	# Get the path of the dataset
 	file_path = os.path.join(script_dir, dataset_config)
 	
+	name_datasets = dataset_config['datasets']
+
+	VARIABLES = variables_to_choose(name_datasets)
+	
 	with open(file_path, 'rt') as f:
-		lines = f.readlines()
 		data = []
-		for line in lines:
-			fields = line.split()
-			data.append([float(x) for x in fields])
+		
+		if name_datasets == 'bostonDataset' : 
+                        lines = f.readlines()
+                        for line in lines:
+                                fields = line.split()
+                                data.append([float(x) for x in fields])			
+                elif name_datasets == 'winedataSet':
+			file_path_red = os.path.join(file_path, 'winequality-red.csv')
+			file_path_white = os.path.join(file_path, 'winequality-white.csv')
+
+			data = list(csv.reader(file_path_red, delimiter=';'))
+			data.append(list(csv.reader(file_path_white, delimiter=';')))
+		
 		data = np.array(data)
-		boston_dataset = {}
+		dataset = {}
 		j = 0
 		for i in VARIABLES :
-			boston_dataset[i] = data[:, j]
+			dataset[i] = data[:, j]
 			j += 1   
-	return data, boston_dataset
+	return data, dataset
  
 def get(datasetPath, protocol):
-    raw_data, boston_dataset = load_data(datasetPath)
-    # use all variables except the price (last column), which is the output 
+    raw_data, dataset = load_data(datasetPath)
+    VARIABLES = variables_to_choose(datasetPath['datasets'])
+
+    # use all variables except last column, which is the output 
     X = pd.DataFrame(raw_data[:, :-1], columns = VARIABLES[:-1])
-    Y = boston_dataset['MEDV']
+    Y = dataset[-1]
     X_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size = PROTOCOLS[protocol]['test'], train_size = PROTOCOLS[protocol]['train'], random_state=5)
     
     return X_train, X_test, Y_train, Y_test
 
 
+def variables_to_choose(selected_data_set):
+	if selected_data_set == 'wineDataset':
+		return VARIABLES_WQ
+	else :
+		return VARIABLES_BH
