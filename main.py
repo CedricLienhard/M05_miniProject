@@ -53,7 +53,11 @@ if __name__ == '__main__':
     data = database.load_data(dataset_config)
     X_train, X_test, Y_train, Y_test = database.get(dataset_config, protocol_config)
     X_train_norm = preprocessor.apply_selected_preprocessing(preprocessing_config, X_train)
-    Y_train_predict, Y_test_predict = algorithm.trainMachine(X_train, Y_train, X_test)
+    
+    trained_model = algorithm.train_model(X_train, Y_train)
+    
+    Y_train_predict = algorithm.predict(X_train, trained_model)
+    Y_test_predict =  algorithm.predict(X_test, trained_model)
     mae_train, mae_test = analysis.compute_performance(Y_train, Y_train_predict, Y_test, Y_test_predict)
 
     

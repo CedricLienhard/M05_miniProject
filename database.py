@@ -14,7 +14,7 @@ from sklearn.model_selection import train_test_split
 
 PROTOCOLS = {
         'proto1': {'train': 0.5, 'test': 0.5},
-        'proto2': {'train': 0.5, 'test': 0.2},
+        'proto2': {'train': 0.7, 'test': 0.3},
         }
 
 VARIABLES = [
