@@ -16,6 +16,18 @@ import analysis
 
 
 def get_info_from_user():
+    """
+    Get input from user using argparse
+
+    Parameters
+    ==========
+    None
+                
+    Returns
+    =======
+    To be filled !
+
+    """
     # Define the configuration options
     config = configparser.ConfigParser()
     config.read("config.ini")
@@ -54,8 +66,9 @@ if __name__ == "__main__":
         preprocessing_config,
         ml_config,
     ) = get_info_from_user()
-    data = database.load_data(dataset_config)
+    
     X_train, X_test, Y_train, Y_test = database.get(dataset_config, protocol_config)
+    
     X_train_norm = preprocessor.apply_selected_preprocessing(
         preprocessing_config, X_train
     )
@@ -64,6 +77,7 @@ if __name__ == "__main__":
 
     Y_train_predict = algorithm.predict(X_train, trained_model)
     Y_test_predict = algorithm.predict(X_test, trained_model)
+    
     mae_train, mae_test = analysis.compute_performance(
         Y_train, Y_train_predict, Y_test, Y_test_predict
     )

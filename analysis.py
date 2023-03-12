@@ -2,6 +2,18 @@ from sklearn.metrics import mean_absolute_error
 
 
 def compute_performance(Y_train, Y_train_predict, Y_test, Y_test_predict):
+    """
+    Computes the MAE of the given train and test datasets
+
+    Parameters
+    ==========
+    To be filled !
+                
+    Returns
+    =======
+    To be filled !
+
+    """
 
     # performance estimation
     mae_train = mean_absolute_error(Y_train, Y_train_predict)

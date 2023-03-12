@@ -58,5 +58,6 @@ def test_normalize_polynomialFeatures():
 
 test_MAE()
 test_predict()
+test_normalize_standardScaler()
 test_normalize_minMaxScaler()
 test_normalize_polynomialFeatures()

@@ -8,6 +8,18 @@ from sklearn import preprocessing
 
 
 def normalize_minMaxScaler(data_to_process):
+    """
+    min max scaler normalization
+
+    Parameters
+    ==========
+    To be filled !
+                
+    Returns
+    =======
+    To be filled !
+
+    """
     min_max_scaler = preprocessing.MinMaxScaler()
     processedData = min_max_scaler.fit_transform(data_to_process)
 
@@ -15,6 +27,18 @@ def normalize_minMaxScaler(data_to_process):
 
 
 def normalize_standardScaler(data_to_process):
+    """
+    standard scaler normalization
+
+    Parameters
+    ==========
+    To be filled !
+                
+    Returns
+    =======
+    To be filled !
+
+    """
     scaler = preprocessing.StandardScaler().fit(data_to_process)
     processedData = scaler.transform(data_to_process)
 
@@ -22,6 +46,18 @@ def normalize_standardScaler(data_to_process):
 
 
 def normalize_polynomialFeatures(data_to_process, polyDegree):
+    """
+    polynomial normalization
+
+    Parameters
+    ==========
+    To be filled !
+                
+    Returns
+    =======
+    To be filled !
+
+    """
     poly = preprocessing.PolynomialFeatures(
         degree=polyDegree, interaction_only=False, include_bias=True
     )
@@ -31,6 +67,18 @@ def normalize_polynomialFeatures(data_to_process, polyDegree):
 
 
 def apply_selected_preprocessing(selected_preprocessing, data_to_process):
+    """
+    apply given preprocessing type on the the data
+
+    Parameters
+    ==========
+    To be filled !
+                
+    Returns
+    =======
+    To be filled !
+
+    """
     # list of available functions
     preprocessing_choices = [
         normalize_minMaxScaler,

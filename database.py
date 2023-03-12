@@ -36,6 +36,18 @@ VARIABLES = [
 
 
 def load_data(dataset_config):
+    """
+    Loads the data according to the given configuration
+
+    Parameters
+    ==========
+    To be filled !
+                
+    Returns
+    =======
+    To be filled !
+
+    """
 
     # Get the absolute path of the script
     script_path = os.path.abspath(__file__)
@@ -61,16 +73,28 @@ def load_data(dataset_config):
     return data, boston_dataset
 
 
-def get(datasetPath, protocol):
-    raw_data, boston_dataset = load_data(datasetPath)
+def get(dataset_config, protocol_config):
+    """
+    Split the data for the Boston dataset, according to the given protocol
+
+    Parameters
+    ==========
+    To be filled !
+                
+    Returns
+    =======
+    To be filled !
+
+    """
+    raw_data, boston_dataset = load_data(dataset_config)
     # use all variables except the price (last column), which is the output
     X = pd.DataFrame(raw_data[:, :-1], columns=VARIABLES[:-1])
     Y = boston_dataset["MEDV"]
     X_train, X_test, Y_train, Y_test = train_test_split(
         X,
         Y,
-        test_size=PROTOCOLS[protocol]["test"],
-        train_size=PROTOCOLS[protocol]["train"],
+        test_size=PROTOCOLS[protocol_config]["test"],
+        train_size=PROTOCOLS[protocol_config]["train"],
         random_state=5,
     )
 

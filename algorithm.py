@@ -13,19 +13,14 @@ def train_model(X_train, Y_train):
     """
     Optimizes the machine parameters to fit the input data
 
-
     Parameters
     ==========
-    X_train :   numpy.ndarray
-                The input data matrix. This must be an array with 3 dimensions or
-                an iterable containing 2 arrays with 2 dimensions each.  Each
-                correspond to the data for one of the two classes, every row
-                corresponds to one example of the data set, every column, one
-                different feature.
+    To be filled !
+                
     Returns
     =======
-    machine : Machine
-        A trained machine.
+    To be filled !
+
     """
 
     # LR model
@@ -35,6 +30,18 @@ def train_model(X_train, Y_train):
 
 
 def predict(X, trained_model):
+    """
+    Best fit for the input data according to the trained model
+
+    Parameters
+    ==========
+    To be filled !
+                
+    Returns
+    =======
+    To be filled !
+
+    """
 
     Y = trained_model.predict(X)
     return Y
