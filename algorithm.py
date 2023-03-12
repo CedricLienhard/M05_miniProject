@@ -12,8 +12,8 @@ from sklearn.linear_model import LinearRegression
 def train_model(X_train, Y_train):
     """
     Optimizes the machine parameters to fit the input data
-    
-    
+
+
     Parameters
     ==========
     X_train :   numpy.ndarray
@@ -28,14 +28,13 @@ def train_model(X_train, Y_train):
         A trained machine.
     """
 
-
-	# LR model
+    # LR model
     lin_model = LinearRegression()
     trained_model = lin_model.fit(X_train, Y_train)
     return trained_model
 
+
 def predict(X, trained_model):
-    
+
     Y = trained_model.predict(X)
     return Y
-	
