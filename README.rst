@@ -1,4 +1,10 @@
-.. image:: https://github.com/CedricLienhard/M05_miniProject/actions/workflows/ci-testing.yml/badge.svg?branch=master
+.. image::	https://github.com/CedricLienhard/M05_miniProject/actions/workflows/ci-testing.yml/badge.svg?branch=main
+   :target: https://github.com/CedricLienhard/M05_miniProject/actions/workflows/ci-testing.yml 
+.. image:: 	https://coveralls.io/repos/github/CedricLienhard/M05_miniProject/badge.svg?branch=main
+   :target: https://coveralls.io/github/CedricLienhard/M05_miniProject?branch=main 
+.. image:: 	https://img.shields.io/badge/github-project-0000c0.svg?branch=main
+   :target: https://github.com/CedricLienhard/M05_miniProject
+
 
 ======================================
  M05 - Mini project : Reproducibility
