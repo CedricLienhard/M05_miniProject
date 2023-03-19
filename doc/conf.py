@@ -146,7 +146,7 @@ html_theme_path = [sphinx_rtd_theme.get_html_theme_path()]
 # Output file base name for HTML help builder.
 htmlhelp_basename = project_variable + u"_doc"
 
- -- Post configuration --------------------------------------------------------
+# -- Post configuration --------------------------------------------------------
 
 # Included after all input documents
 rst_epilog = """
