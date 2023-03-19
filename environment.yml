@@ -8,6 +8,8 @@ dependencies:
   - pandas
   - scikit-learn
   - pytest
+  - sphinx
+  - sphinx_rtd_theme
   - pytest-cov
   - pip
   - pip:
