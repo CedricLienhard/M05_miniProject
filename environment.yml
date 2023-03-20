@@ -9,7 +9,7 @@ dependencies:
   - scikit-learn
   - pytest
   - sphinx
-  - sphinx-rtd-theme
+  - sphinx_rtd_theme
   - pytest-cov
   - pip
   - pip:
