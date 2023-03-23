@@ -20,7 +20,7 @@ jobs:
     strategy:
       fail-fast: false  # avoids cancelled builds if the other fails
       matrix:
-        python-version: ["3.8", "3.9"]
+        python-version: ["3.9", "3.10"]
 
     # Here we define the steps to be undertaken for every test
     # -- Each step does one action.  Code for the action sits in
@@ -70,7 +70,7 @@ jobs:
 
 
       - name: Deploy documentation to GitHub Pages
-        if: ${{ matrix.python-version == '3.9' }}  #deploys only one variant
+        if: ${{ matrix.python-version == '3.10' }}  #deploys only one variant
         uses: crazy-max/ghaction-github-pages@v2
         with:
           target_branch: gh-pages
