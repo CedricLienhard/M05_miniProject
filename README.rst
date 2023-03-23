@@ -4,7 +4,8 @@
    :target: https://coveralls.io/github/CedricLienhard/M05_miniProject?branch=main 
 .. image:: 	https://img.shields.io/badge/github-project-0000c0.svg?branch=main
    :target: https://github.com/CedricLienhard/M05_miniProject
-
+.. image::  https://img.shields.io/badge/docs-latest-orange.svg
+   :target: https://cedriclienhard.github.io/M05_miniProject/
 
 ======================================
  M05 - Mini project : Reproducibility
