@@ -9,12 +9,5 @@ typically use when running this package code.
 
 To download a copy of this package, clone it from its repository in GitHub:
 
-.. code:: sh
 
-   $ git clone git@github.com:idiap/mai-m05-ex5 project
-   $ cd project
-   $ conda env create -f environment.yml -n project
-   $ conda activate project
-   (project) $ #you are ready to run baselines!
 
-.. include:: links.rst
