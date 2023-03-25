@@ -10,7 +10,7 @@ Welcome to M05_miniProject's documentation!
    :maxdepth: 2
    :caption: Contents:
 
-	installation
+   installation
 
 Indices and tables
 ==================
