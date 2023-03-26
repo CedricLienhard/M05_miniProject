@@ -12,9 +12,12 @@ import os
 
 from sklearn.model_selection import train_test_split
 
+
+import preprocessor
+
 PROTOCOLS = {
     "proto1": {"train": 0.5, "test": 0.5},
-    "proto2": {"train": 0.7, "test": 0.3},
+    "proto2": {"train": 0.7, "test": 0.3},	
 }
 
 VARIABLES = [
@@ -97,5 +100,4 @@ def get(dataset_config, protocol_config):
         train_size=PROTOCOLS[protocol_config]["train"],
         random_state=5,
     )
-
     return X_train, X_test, Y_train, Y_test
