@@ -9,3 +9,4 @@
 .. _miniconda: https://docs.conda.io/en/latest/miniconda.html
 .. _setuptools: https://pypi.org/project/setuptools/
 .. _sphinx: https://www.sphinx-doc.org
+.. _panda: https://pandas.pydata.org/docs/
