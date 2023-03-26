@@ -81,9 +81,18 @@
 
 <span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
 
+<<<<<<< HEAD
 <span class="n">PROTOCOLS</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s2">&quot;proto1&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;train&quot;</span><span class="p">:</span> <span class="mf">0.5</span><span class="p">,</span> <span class="s2">&quot;test&quot;</span><span class="p">:</span> <span class="mf">0.5</span><span class="p">},</span>
     <span class="s2">&quot;proto2&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;train&quot;</span><span class="p">:</span> <span class="mf">0.7</span><span class="p">,</span> <span class="s2">&quot;test&quot;</span><span class="p">:</span> <span class="mf">0.3</span><span class="p">},</span>
+=======
+
+<span class="kn">import</span> <span class="nn">preprocessor</span>
+
+<span class="n">PROTOCOLS</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;proto1&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;train&quot;</span><span class="p">:</span> <span class="mf">0.5</span><span class="p">,</span> <span class="s2">&quot;test&quot;</span><span class="p">:</span> <span class="mf">0.5</span><span class="p">},</span>
+    <span class="s2">&quot;proto2&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;train&quot;</span><span class="p">:</span> <span class="mf">0.7</span><span class="p">,</span> <span class="s2">&quot;test&quot;</span><span class="p">:</span> <span class="mf">0.3</span><span class="p">},</span>	
+>>>>>>> sphinx_doc
 <span class="p">}</span>
 
 <span class="n">VARIABLES</span> <span class="o">=</span> <span class="p">[</span>
@@ -166,7 +175,10 @@
         <span class="n">train_size</span><span class="o">=</span><span class="n">PROTOCOLS</span><span class="p">[</span><span class="n">protocol_config</span><span class="p">][</span><span class="s2">&quot;train&quot;</span><span class="p">],</span>
         <span class="n">random_state</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
     <span class="p">)</span>
+<<<<<<< HEAD
 
+=======
+>>>>>>> sphinx_doc
     <span class="k">return</span> <span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">Y_train</span><span class="p">,</span> <span class="n">Y_test</span></div>
 </pre></div>
 
