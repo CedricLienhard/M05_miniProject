@@ -17,12 +17,8 @@ import preprocessor
 
 PROTOCOLS = {
     "proto1": {"train": 0.5, "test": 0.5},
-<<<<<<< HEAD
     "proto2": {"train": 0.7, "test": 0.3},
     "proto3": {"train": 0.9, "test": 0.1},
-=======
-    "proto2": {"train": 0.7, "test": 0.3},	
->>>>>>> sphinx_doc
 }
 
 VARIABLES_BH = [
