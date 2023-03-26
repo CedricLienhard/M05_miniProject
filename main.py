@@ -40,10 +40,10 @@ def get_info_from_user():
 
     # Define the command-line arguments
     parser = argparse.ArgumentParser()
-    parser.add_argument("--dataset", choices=datasets, required=True)
-    parser.add_argument("--protocol", choices=protocols, required=True)
-    parser.add_argument("--preprocessing", choices=preprocessing_methods, required=True)
-    parser.add_argument("--ml_model", choices=ml_models, required=True)
+    parser.add_argument("--dataset", choices=datasets, default="bostonhousing")
+    parser.add_argument("--protocol", choices=protocols, default="protocol1")
+    parser.add_argument("--preprocessing", choices=preprocessing_methods, default="minMaxScaler")
+    parser.add_argument("--ml_model", choices=ml_models, default="model1")
 
     # Parse the command-line arguments
     args = parser.parse_args()
