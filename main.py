@@ -40,10 +40,10 @@ def get_info_from_user():
 
     # Define the command-line arguments
     parser = argparse.ArgumentParser()
-    parser.add_argument("--dataset", choices=datasets, required=True)
-    parser.add_argument("--protocol", choices=protocols, required=True)
-    parser.add_argument("--preprocessing", choices=preprocessing_methods, required=True)
-    parser.add_argument("--ml_model", choices=ml_models, required=True)
+    parser.add_argument("--dataset", choices=datasets, default="boston_dataset", help='Name of the dataset to use')
+    parser.add_argument("--protocol", choices=protocols, default="protocol1", help='Name of the protocol to use')
+    parser.add_argument("--preprocessing", choices=preprocessing_methods, default="min_max_scaler", help='Name of the preprocessing algorithm to use')
+    parser.add_argument("--ml_model", choices=ml_models, default="linear_regression", help='Name of the machine learning algorithm to use')
 
     # Parse the command-line arguments
     args = parser.parse_args()
@@ -72,11 +72,16 @@ if __name__ == "__main__":
     X_train_norm = preprocessor.apply_selected_preprocessing(
         preprocessing_config, X_train
     )
+    
+    X_test_norm = preprocessor.apply_selected_preprocessing(
+        preprocessing_config, X_test
+    )
+    
+    trained_model = algorithm.train_model(X_train_norm, Y_train)
+    
 
-    trained_model = algorithm.train_model(X_train, Y_train)
-
-    Y_train_predict = algorithm.predict(X_train, trained_model)
-    Y_test_predict = algorithm.predict(X_test, trained_model)
+    Y_train_predict = algorithm.predict(X_train_norm, trained_model)
+    Y_test_predict = algorithm.predict(X_test_norm, trained_model)
     
     mae_train, mae_test = analysis.compute_performance(
         Y_train, Y_train_predict, Y_test, Y_test_predict

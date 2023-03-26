@@ -12,12 +12,16 @@ import os
 
 from sklearn.model_selection import train_test_split
 
+
+import preprocessor
+
 PROTOCOLS = {
     "proto1": {"train": 0.5, "test": 0.5},
     "proto2": {"train": 0.7, "test": 0.3},
+    "proto3": {"train": 0.9, "test": 0.1},
 }
 
-VARIABLES = [
+VARIABLES_BH = [
     "CRIM",
     "ZN",
     "INDUS",
@@ -34,6 +38,20 @@ VARIABLES = [
     "MEDV",
 ]
 
+VARIABLES_WQ = [
+    "fixed acidity",
+    "volatile acidity",
+    "citric acid",
+    "residual sugar",
+    "chlorides",
+    "free sulfur dioxide",
+    "total sulfur dioxide",
+    "density"
+    "pH",
+    "sulphates",
+    "alcohol",
+    "quality",
+]
 
 def load_data(dataset_config):
     """
@@ -58,24 +76,34 @@ def load_data(dataset_config):
     # Get the path of the dataset
     file_path = os.path.join(script_dir, dataset_config)
 
-    with open(file_path, "rt") as f:
-        lines = f.readlines()
-        data = []
-        for line in lines:
-            fields = line.split()
-            data.append([float(x) for x in fields])
-        data = np.array(data)
-        boston_dataset = {}
-        j = 0
-        for i in VARIABLES:
-            boston_dataset[i] = data[:, j]
-            j += 1
-    return data, boston_dataset
+    if dataset_config == 'BostonHousing/housing.data':
+        with open(file_path, "rt") as f:
+            lines = f.readlines()
+            data = []
+            for line in lines:
+                fields = line.split()
+                data.append([float(x) for x in fields])
+            data = np.array(data)
+            dataset = {}
+            j = 0
+            for i in VARIABLES_BH:
+                dataset[i] = data[:, j]
+                j += 1
+            X = pd.DataFrame(data[:, :-1], columns=VARIABLES_BH[:-1])
+            Y = Y = dataset[VARIABLES_BH[-1]]
+    else:
+        data = pd.read_csv(file_path, header=None)
+        data = data[0].str.split(';', expand=True)
+        data.columns = data.iloc[0]
+        data = data[1:]
+        X = data.drop(['"quality"'], axis = 1)    
+        Y = data['"quality"']
+    return X, Y
 
 
 def get(dataset_config, protocol_config):
     """
-    Split the data for the Boston dataset, according to the given protocol
+    Split the data for the dataset, according to the given protocol
 
     Parameters
     ==========
@@ -86,10 +114,8 @@ def get(dataset_config, protocol_config):
     To be filled !
 
     """
-    raw_data, boston_dataset = load_data(dataset_config)
-    # use all variables except the price (last column), which is the output
-    X = pd.DataFrame(raw_data[:, :-1], columns=VARIABLES[:-1])
-    Y = boston_dataset["MEDV"]
+    X, Y = load_data(dataset_config)
+    
     X_train, X_test, Y_train, Y_test = train_test_split(
         X,
         Y,
@@ -97,5 +123,4 @@ def get(dataset_config, protocol_config):
         train_size=PROTOCOLS[protocol_config]["train"],
         random_state=5,
     )
-
     return X_train, X_test, Y_train, Y_test
