@@ -11,6 +11,11 @@ Welcome to M05_miniProject's documentation!
    :caption: Contents:
 
    installation
+   results
+   guide
+   
+   api
+   
 
 Indices and tables
 ==================
