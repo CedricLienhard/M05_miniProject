@@ -7,9 +7,6 @@ typically used when running this package code.
 
 To download a copy of this package, clone it from its repository in GitHub:
 
-
-<<<<<<< HEAD
-
 =======
    $ git clone git@github.com:CedricLienhard/M05_miniProject project 
    $ cd project
@@ -19,4 +16,4 @@ To download a copy of this package, clone it from its repository in GitHub:
 
 .. include:: links.rst
 
->>>>>>> sphinx_doc
+

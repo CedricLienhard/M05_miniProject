@@ -10,7 +10,6 @@ This section contains the results of our analysis.
 Boston Housing Price
 ---------------------
 
-<<<<<<< HEAD
 
 =======
 .. table:: Boston Housing Results
@@ -55,4 +54,3 @@ Boston Housing Price
    +------------+--------------------+------------------+---------------------------+
    | protocol 3 | polynomial         | decision tree    |                           |
    +------------+--------------------+------------------+---------------------------+
->>>>>>> sphinx_doc
