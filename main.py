@@ -77,7 +77,9 @@ if __name__ == "__main__":
         preprocessing_config, X_test
     )
     
-    trained_model = algorithm.train_model(X_train_norm, Y_train)
+    trained_model = algorithm.train_model(
+        ml_config, X_train_norm, Y_train
+    )
     
 
     Y_train_predict = algorithm.predict(X_train_norm, trained_model)

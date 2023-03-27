@@ -7,9 +7,9 @@ Created on Sat Feb 18 11:36:37 2023
 
 
 from sklearn.linear_model import LinearRegression
+from sklearn.tree import DecisionTreeRegressor
 
-
-def train_model(X_train, Y_train):
+def train_model(model, X_train, Y_train):
     """
     Optimizes the machine parameters to fit the input data
 
@@ -22,10 +22,18 @@ def train_model(X_train, Y_train):
     To be filled !
 
     """
-
-    # LR model
-    lin_model = LinearRegression()
-    trained_model = lin_model.fit(X_train, Y_train)
+    if model == "linear_regression":
+        # LR model
+        lin_model = LinearRegression()
+        trained_model = lin_model.fit(X_train, Y_train)
+    elif model == "regression_trees":
+        # RT model
+        rt_model = DecisionTreeRegressor(random_state=44, criterion="absolute_error", max_depth=5)
+        trained_model = rt_model.fit(X_train, Y_train)
+    else :
+        print("Algorithm is not implemented !")
+        return
+    
     return trained_model
 
 
