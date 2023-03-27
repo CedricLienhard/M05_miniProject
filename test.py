@@ -24,7 +24,7 @@ def test_predict():
     X_test = np.array([[7, 8], [9, 10]])
 
     # Train the model
-    trained_model = algorithm.train_model(X_train, Y_train)
+    trained_model = algorithm.train_model("linear_regression",X_train, Y_train)
     Y_train_predict = algorithm.predict(X_train, trained_model)
     Y_test_predict = algorithm.predict(X_test, trained_model)
 
