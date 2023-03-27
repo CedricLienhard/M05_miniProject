@@ -20,37 +20,37 @@ Boston Housing Price
    +============+====================+==================+===========================+
    | protocol 1 | min-max            | linear regression| 3.131 / 3.913             |
    +------------+--------------------+------------------+---------------------------+
-   | protocol 1 | min-max            | decision tree    | dfdfdfdf                  |
+   | protocol 1 | min-max            | decision tree    | 1.713 / 3.857             |
    +------------+--------------------+------------------+---------------------------+
    | protocol 1 | standard           | linear regression| 3.131 / 3.632             |
    +------------+--------------------+------------------+---------------------------+
-   | protocol 1 | standard           | decision tree    |                           |
+   | protocol 1 | standard           | decision tree    | 1.713 / 3.393             |
    +------------+--------------------+------------------+---------------------------+
    | protocol 1 | polynomial         | linear regression| 2.119 / 3.492             |
    +------------+--------------------+------------------+---------------------------+
-   | protocol 1 | polynomial         | decision tree    |                           |
+   | protocol 1 | polynomial         | decision tree    | 1.445 / 2.986             |
    +------------+--------------------+------------------+---------------------------+
    | protocol 2 | min-max            | linear regression| 3.084 / 3.977             |
    +------------+--------------------+------------------+---------------------------+
-   | protocol 2 | min-max            | decision tree    |                           |
+   | protocol 2 | min-max            | decision tree    | 1.857 / 3.211             |
    +------------+--------------------+------------------+---------------------------+
    | protocol 2 | standard           | linear regression| 3.084 / 3.693             |
    +------------+--------------------+------------------+---------------------------+
-   | protocol 2 | standard           | decision tree    |                           |
+   | protocol 2 | standard           | decision tree    | 1.857 / 3.521             |
    +------------+--------------------+------------------+---------------------------+
    | protocol 2 | polynomial         | linear regression| 1.632 / 2.865             |
    +------------+--------------------+------------------+---------------------------+
-   | protocol 2 | polynomial         | decision tree    |                           |
+   | protocol 2 | polynomial         | decision tree    | 1.644 / 3.055             |
    +------------+--------------------+------------------+---------------------------+
-   | protocol 3 | min-max            | linear regression| 0.000 / 0.000             |
+   | protocol 3 | min-max            | linear regression| 3.305 / 4.542             |
    +------------+--------------------+------------------+---------------------------+
-   | protocol 3 | min-max            | decision tree    |                           |
+   | protocol 3 | min-max            | decision tree    | 1.828 / 3.251             |
    +------------+--------------------+------------------+---------------------------+
-   | protocol 3 | standard           | linear regression| 0.000 / 0.000             |
+   | protocol 3 | standard           | linear regression| 3.305 / 3.200             |
    +------------+--------------------+------------------+---------------------------+
-   | protocol 3 | standard           | decision tree    |                           |
+   | protocol 3 | standard           | decision tree    | 1.828 / 3.171             |
    +------------+--------------------+------------------+---------------------------+
-   | protocol 3 | polynomial         | linear regression| 0.000 / 0.000             |
+   | protocol 3 | polynomial         | linear regression| 1.816 / 2.170             |
    +------------+--------------------+------------------+---------------------------+
-   | protocol 3 | polynomial         | decision tree    |                           |
+   | protocol 3 | polynomial         | decision tree    | 1.694 / 2.254             |
    +------------+--------------------+------------------+---------------------------+
