@@ -49,8 +49,8 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           COVERALLS_FLAG_NAME: ${{ matrix.python-version }}
           COVERALLS_PARALLEL: true
-        run: |
-          src-main --help  #checks help function works at least
+        run: | # see 'setup.py' file to understand what src-main is
+          src-main --help  #checks help function works at least 
           src-main  #basic test case
           src-main --protocol=protocol1  #filter by protocol
           pytest -sv --cov=src src
@@ -67,7 +67,7 @@ jobs:
         if: ${{ matrix.python-version == '3.10' }}  #deploys only one variant
         uses: crazy-max/ghaction-github-pages@v3
         with:
-          target_branch: gh-pages
+          target_branch: gh-pages # github branch for CI
           build_dir: sphinx
         env:
           GITHUB_TOKEN: ${{ secrets.GH_PAGES_TOKEN }}
@@ -76,7 +76,7 @@ jobs:
         # builds only from one variant
         if: ${{ matrix.python-version == '3.10' }}
         shell: bash -l {0}
-        run: |
+        run: | # sdist creates a source distribution package in the dist directory.
           python setup.py sdist
 
 
