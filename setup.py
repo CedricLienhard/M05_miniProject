@@ -8,7 +8,7 @@ def load_requirements(f):
 
 setup(
     name="src",
-    version="1.0.1",
+    version="0.5.0",
     description="M05_miniProject",
     url="https://github.com/CedricLienhard/M05_miniProject",
     license="MIT",
