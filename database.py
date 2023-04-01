@@ -58,12 +58,16 @@ def load_data(dataset_config):
     Loads the data according to the given configuration
 
     Parameters
-    ==========
-    To be filled !
+    -----------
+    dataset_config : str
+        define which dataset to load between the Boston housing or the Wine quality, red or white
                 
     Returns
-    =======
-    To be filled !
+    -----------
+    tuple 
+        X, Y 
+        X is the datas without the results column 
+        Y is the results column of the datas (ex: Price, quality)
 
     """
 
@@ -106,12 +110,17 @@ def get(dataset_config, protocol_config):
     Split the data for the dataset, according to the given protocol
 
     Parameters
-    ==========
-    To be filled !
+    ----------
+    dataset_config : str
+        define which dataset to load (ex: boston_dataset)
+    protocol_config : str
+        define which protocol to apply (ex: protocol1 -> 50% / 50% )
                 
     Returns
-    =======
-    To be filled !
+    ----------
+    tuple 
+        X_train, X_test, Y_train, Y_test 
+        The value due to the repartitions in the train and the test 
 
     """
     X, Y = load_data(dataset_config)
