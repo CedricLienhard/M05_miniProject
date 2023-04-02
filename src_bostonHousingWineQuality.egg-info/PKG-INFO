@@ -1,0 +1,40 @@
+Metadata-Version: 2.1
+Name: src-bostonHousingWineQuality
+Version: 0.5.2
+Summary: M05_miniProject
+Home-page: https://github.com/CedricLienhard/M05_miniProject
+Author: Cedric Lienhard, Mustapha Al-Dabboussi
+Author-email: lienhard.cedric@gmail.com
+License: MIT
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Description-Content-Type: text/x-rst
+License-File: LICENSE
+
+.. image::	https://github.com/CedricLienhard/M05_miniProject/actions/workflows/ci-testing.yml/badge.svg?branch=main
+   :target: https://github.com/CedricLienhard/M05_miniProject/actions/workflows/ci-testing.yml 
+.. image:: 	https://coveralls.io/repos/github/CedricLienhard/M05_miniProject/badge.svg?branch=main
+   :target: https://coveralls.io/github/CedricLienhard/M05_miniProject?branch=main 
+.. image:: 	https://img.shields.io/badge/github-project-0000c0.svg?branch=main
+   :target: https://github.com/CedricLienhard/M05_miniProject
+.. image::  https://img.shields.io/badge/docs-latest-orange.svg
+   :target: https://cedriclienhard.github.io/M05_miniProject/
+
+======================================
+ M05 - Mini project : Reproducibility
+======================================
+
+This bundle contains the code we used to build a reproducible project while following the M05 course. 
+
+
+For installation and usage instructions, please refer to our documentation,
+that can be accessed through the relevant badge above.
+
+
+
