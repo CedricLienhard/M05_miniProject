@@ -57,7 +57,7 @@ def get_info_from_user():
 
 
 def main():
-	"""Main function to be called from the command-line"""
+    """Main function to be called from the command-line"""
 
     (
         dataset_config,
