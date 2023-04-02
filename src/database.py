@@ -78,7 +78,8 @@ def load_data(dataset_config):
     script_dir = os.path.dirname(script_path)
 
     # Get the path of the dataset
-    file_path = os.path.join(script_dir, dataset_config)
+    #file_path = os.path.join(script_dir, dataset_config)
+    file_path = os.path.join(os.path.abspath(os.path.dirname(__file__)), "../data", dataset_config)
 
     if dataset_config == 'data/BostonHousing/housing.data':
         with open(file_path, "rt") as f:
