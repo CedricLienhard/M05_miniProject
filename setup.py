@@ -7,12 +7,13 @@ def load_requirements(f):
 
 
 setup(
-    name="src",
+    name="src_bostonHousingWineQuality",
     version="0.5.2",
     description="M05_miniProject",
     url="https://github.com/CedricLienhard/M05_miniProject",
     license="MIT",
     author="Cedric Lienhard, Mustapha Al-Dabboussi",
+    author_email="lienhard.cedric@gmail.com",
     long_description=open("README.rst").read(),
     long_description_content_type="text/x-rst",
     packages=find_packages(),
