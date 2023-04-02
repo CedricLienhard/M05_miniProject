@@ -15,6 +15,30 @@ from . import algorithm
 from . import analysis
 
 
+datasets = {
+    "boston_dataset": "data/BostonHousing/housing.data",
+    "wine_white_dataset": "data/WineQuality/winequality-white.csv",
+    "wine_red_dataset": "data/WineQuality/winequality-red.csv",
+}
+
+protocols = {
+    "protocol1": "proto1",
+    "protocol2": "proto2",
+    "protocol3": "proto3"
+}
+
+preprocessing_methods = {
+    "min_max_scaler": "1",
+    "standard_scaler": "2",
+    "polynomial_features": "3"
+}
+
+ml_models = {
+    "linear_regression": "linear_regression",
+    "regression_trees": "regression_trees"
+}
+
+
 def get_info_from_user():
     """
     Get input from user using argparse
@@ -29,30 +53,43 @@ def get_info_from_user():
 
     """
     # Define the configuration options
+    '''
     config = configparser.ConfigParser()
     config.read("config.ini")
-	
+
     datasets = config["datasets"].keys()
     protocols = config["protocols"].keys()
     preprocessing_methods = config["preprocessing_methods"].keys()
     ml_models = config["ml_models"].keys()
+    '''
 
     # Define the command-line arguments
     parser = argparse.ArgumentParser()
+    parser.add_argument("--dataset", choices=list(datasets.keys()), default="boston_dataset", help='Name of the dataset to use')
+    parser.add_argument("--protocol", choices=list(protocols.keys()), default="protocol1", help='Name of the protocol to use')
+    parser.add_argument("--preprocessing", choices=list(preprocessing_methods.keys()), default="min_max_scaler", help='Name of the preprocessing algorithm to use')
+    parser.add_argument("--ml_model", choices=list(ml_models.keys()), default="linear_regression", help='Name of the machine learning algorithm to use')
+    '''
     parser.add_argument("--dataset", choices=datasets, default="boston_dataset", help='Name of the dataset to use')
     parser.add_argument("--protocol", choices=protocols, default="protocol1", help='Name of the protocol to use')
     parser.add_argument("--preprocessing", choices=preprocessing_methods, default="min_max_scaler", help='Name of the preprocessing algorithm to use')
     parser.add_argument("--ml_model", choices=ml_models, default="linear_regression", help='Name of the machine learning algorithm to use')
-
+'''
     # Parse the command-line arguments
     args = parser.parse_args()
 
     # Load the configuration files
-    dataset_config = config["datasets"][args.dataset]
+    dataset_config = datasets[args.dataset]
+    protocol_config = protocols[args.protocol]
+    preprocessing_config = preprocessing_methods[args.preprocessing]
+    ml_config = ml_models[args.ml_model]
+    
+    '''dataset_config = config["datasets"][args.dataset]
+    dataset_config = datasets[args.dataset]
     protocol_config = config["protocols"][args.protocol]
     preprocessing_config = config["preprocessing_methods"][args.preprocessing]
     ml_config = config["ml_models"][args.ml_model]
-
+'''
     return dataset_config, protocol_config, preprocessing_config, ml_config
 
 

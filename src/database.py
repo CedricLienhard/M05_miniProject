@@ -86,9 +86,9 @@ def load_data(dataset_config):
     # Get the path of the dataset
     #file_path = os.path.join(script_dir, dataset_config)
   #  file_path = os.path.join(os.path.abspath(os.path.dirname(__file__)), dataset_config)
-    print(DATAFILE)
+    #print(DATAFILE)
     file_path = os.path.join(DATAFILE, dataset_config)
-    print(file_path)
+   # print(file_path)
 
     if dataset_config == 'data/BostonHousing/housing.data':
         #DATAFILE = pkg_resources.resource_filename(__name__, "data/BostonHousing/housing.data")
