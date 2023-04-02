@@ -9,10 +9,10 @@ import argparse
 import configparser
 
 
-from . import database
-from . import preprocessor
-from . import algorithm
-from . import analysis
+import database
+import preprocessor
+import algorithm
+import analysis
 
 
 def get_info_from_user():
@@ -58,7 +58,6 @@ def get_info_from_user():
 
 
 if __name__ == "__main__":
-    print("Main script for Mini-Project")
 
     (
         dataset_config,
