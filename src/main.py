@@ -56,8 +56,7 @@ def get_info_from_user():
     return dataset_config, protocol_config, preprocessing_config, ml_config
 
 
-#def main():
-if __name__ == '__main__':
+def main():
     """Main function to be called from the command-line"""
 
     (
@@ -88,3 +87,6 @@ if __name__ == '__main__':
     mae_train, mae_test = analysis.compute_performance(
         Y_train, Y_train_predict, Y_test, Y_test_predict
     )
+    
+if __name__ == '__main__':
+    main()

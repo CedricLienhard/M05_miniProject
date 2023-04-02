@@ -14,8 +14,6 @@ from sklearn.model_selection import train_test_split
 
 import pkg_resources
 DATAFILE = pkg_resources.resource_filename(__name__, "data")
-print(DATAFILE)
-
 
 
 #import preprocessor
