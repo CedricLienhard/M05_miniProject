@@ -22,7 +22,7 @@ setup(
     
     #creates a command line script 'src-main' that can be executed from the terminal. The script is linked to the main function in the src.main module. 
     #When you run the command src-main from the terminal, it will execute the main function in the src.main module.
-    entry_points={"console_scripts": ["src-main = src.main:main"]}, 
+    entry_points={"console_scripts": ["src-main = src.main:__main__"]}, 
     classifiers=[
         "Development Status :: 4 - Beta",
         "Intended Audience :: Developers",
