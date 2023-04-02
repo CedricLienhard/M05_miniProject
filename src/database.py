@@ -80,7 +80,7 @@ def load_data(dataset_config):
     # Get the path of the dataset
     file_path = os.path.join(script_dir, dataset_config)
 
-    if dataset_config == 'BostonHousing/housing.data':
+    if dataset_config == 'data/BostonHousing/housing.data':
         with open(file_path, "rt") as f:
             lines = f.readlines()
             data = []
