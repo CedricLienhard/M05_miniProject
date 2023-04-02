@@ -13,7 +13,7 @@ import os
 from sklearn.model_selection import train_test_split
 
 import pkg_resources
-DATAFILE = pkg_resources.resource_filename(__name__, "data")
+DATAFILE = pkg_resources.resource_filename(__name__, "")
 
 
 #import preprocessor
@@ -86,7 +86,8 @@ def load_data(dataset_config):
     # Get the path of the dataset
     #file_path = os.path.join(script_dir, dataset_config)
   #  file_path = os.path.join(os.path.abspath(os.path.dirname(__file__)), dataset_config)
-    file_path = os.path.join(script_dir, dataset_config)
+    print(DATAFILE)
+    file_path = os.path.join(DATAFILE, dataset_config)
     print(file_path)
 
     if dataset_config == 'data/BostonHousing/housing.data':
