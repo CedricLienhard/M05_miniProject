@@ -1,2 +1,3 @@
 include LICENSE README.rst requirements.txt
 recursive-include doc conf.py *.rst *.ico *.png
+recursive-include src/data *
