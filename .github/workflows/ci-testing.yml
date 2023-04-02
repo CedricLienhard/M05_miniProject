@@ -31,53 +31,71 @@ jobs:
       - name: Check out repository code # name of the step (is displayed in the Action logs)
         uses: actions/checkout@v3 # v3 is just a specific version of the "action/checkout" action 
 
-      # Action provided by "conda-incubator" to setup conda env
-      - name: Setup miniconda
-        uses: conda-incubator/setup-miniconda@v2 # This action sets up a Conda environment with below parameters
-        with:
-          miniconda-version: "latest"
-          python-version: ${{ matrix.python-version }}
-          auto-update-conda: true
-          auto-activate-base: false # specifies that the base Conda environment should not be activated automatically.
-          activate-environment: project
-          environment-file: environment.yml #specifies the path to the Conda environment configuration file, which lists the packages and dependencies needed for the environment.
-
-      # Default action: run something
-      - name: Run tests
-        shell: bash -l {0} # specifies that the bash shell should be used to execute the following commands.
-        # 'run: | ' indicates that a multi-line command follows 
-
+      - name: Prepare Python ${{ matrix.python-version }}
+        shell: bash -l {0}
         run: |
-          conda info -a
-          pytest -sv --cov=. test.py
-      
+          python -m pip install --upgrade pip
+          pip install wheel  #built-package format for Python that provides a simpler and faster way to distribute Python packages
+
+      - name: Install package and build dependencies for Python ${{ matrix.python-version }}
+        shell: bash -l {0}
+        run: |
+          pip install .
+          pip install -r build-requirements.txt  #only required for CI tests
+
+      - name: Run all tests and upload coverage to coveralls
+        shell: bash -l {0}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          COVERALLS_FLAG_NAME: ${{ matrix.python-version }}
+          COVERALLS_PARALLEL: true
+        run: | # see 'setup.py' file to understand what src-main is
+          src-main --help  #checks help function works at least 
+          src-main  #basic test case
+          src-main --protocol=protocol1  #filter by protocol
+          pytest -sv --cov=src src
+          coveralls --service=github
+
       - name: Build documentation
+        if: ${{ matrix.python-version == '3.10' }}  #builds only one variant
         shell: bash -l {0}
         run: |
           sphinx-build doc sphinx  #generates html version of docs
           touch sphinx/.nojekyll  #pages to be deployed are NOT a Jekyll site
-          coverage html -d sphinx/coverage  #dump coverage report into doc tree
-
-      - name: Upload coverage to coveralls.io
-        shell: bash -l {0}
-        env: # This is a YAML mapping that specifies environment variables to be used in the following commands.
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # sets GITHUB_TOKEN environment variable to the value of the secrets.GITHUB_TOKEN. This token is used to authenticate with GitHub #API.
-          COVERALLS_FLAG_NAME: ${{ matrix.python-version }} #sets the COVERALLS_FLAG_NAME environment variable. This variable is used to specify the name of the test suite in coveralls.io.
-          COVERALLS_PARALLEL: true # sets the COVERALLS_PARALLEL environment variable to true, which enables parallel test execution in coveralls.io.
-
-        run: |
-          conda info -a
-          coveralls --service=github
-
 
       - name: Deploy documentation to GitHub Pages
         if: ${{ matrix.python-version == '3.10' }}  #deploys only one variant
-        uses: crazy-max/ghaction-github-pages@v2
+        uses: crazy-max/ghaction-github-pages@v3
         with:
-          target_branch: gh-pages
+          target_branch: gh-pages # github branch for CI
           build_dir: sphinx
         env:
           GITHUB_TOKEN: ${{ secrets.GH_PAGES_TOKEN }}
+
+      - name: Build PyPI (source) package
+        # builds only from one variant
+        if: ${{ matrix.python-version == '3.10' }}
+        shell: bash -l {0}
+        run: | # sdist creates a source distribution package in the dist directory.
+          python setup.py sdist
+
+
+
+
+
+
+
+
+
+
+      - name: Deploy package to TestPyPI
+        # deploys only one variant, and if it is tagged
+        if: ${{ matrix.python-version == '3.10' && startsWith(github.ref, 'refs/tags') }}
+        uses: pypa/gh-action-pypi-publish@release/v1
+        with:
+          password: ${{ secrets.TEST_PYPI_API_TOKEN }}
+          repository-url: https://test.pypi.org/legacy/
+
 
   coveralls:
     name: Indicate completion to coveralls.io

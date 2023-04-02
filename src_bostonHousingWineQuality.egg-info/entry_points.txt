@@ -1,0 +1,3 @@
+[console_scripts]
+src-main = src.main:main
+

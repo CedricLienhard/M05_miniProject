@@ -1,0 +1,3 @@
+
+[console_scripts]
+pycomment = pycomment.__main__:main
