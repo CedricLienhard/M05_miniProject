@@ -12,6 +12,9 @@ import os
 
 from sklearn.model_selection import train_test_split
 
+#import pkg_resources
+#DATAFILE = pkg_resources.resource_filename(__name__, "data.csv")
+
 
 #import preprocessor
 
@@ -76,10 +79,12 @@ def load_data(dataset_config):
 
     # Get the directory containing the script
     script_dir = os.path.dirname(script_path)
+    
+    print(script_dir)
 
     # Get the path of the dataset
-    #file_path = os.path.join(script_dir, dataset_config)
-    file_path = os.path.join(os.path.abspath(os.path.dirname(__file__)), "../data", dataset_config)
+    file_path = os.path.join(script_dir, dataset_config)
+    file_path = os.path.join(os.path.abspath(os.path.dirname(__file__)), dataset_config)
 
     if dataset_config == 'data/BostonHousing/housing.data':
         with open(file_path, "rt") as f:
