@@ -22,7 +22,7 @@ def get_info_from_user():
     Parameters
     ==========
     None
-                
+
     Returns
     =======
     To be filled !
@@ -31,8 +31,7 @@ def get_info_from_user():
     # Define the configuration options
     config = configparser.ConfigParser()
     config.read("config.ini")
-    # parameters = config.sections()
-
+	
     datasets = config["datasets"].keys()
     protocols = config["protocols"].keys()
     preprocessing_methods = config["preprocessing_methods"].keys()
