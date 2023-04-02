@@ -8,7 +8,7 @@ def load_requirements(f):
 
 setup(
     name="src_bostonHousingWineQuality",
-    version="0.5.4",
+    version="0.5.6",
     description="M05_miniProject",
     url="https://github.com/CedricLienhard/M05_miniProject",
     license="MIT",
