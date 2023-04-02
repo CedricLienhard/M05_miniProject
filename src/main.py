@@ -56,7 +56,8 @@ def get_info_from_user():
     return dataset_config, protocol_config, preprocessing_config, ml_config
 
 
-if __name__ == "__main__":
+def main():
+	"""Main function to be called from the command-line"""
 
     (
         dataset_config,
