@@ -12,8 +12,10 @@ import os
 
 from sklearn.model_selection import train_test_split
 
-#import pkg_resources
-#DATAFILE = pkg_resources.resource_filename(__name__, "data.csv")
+import pkg_resources
+DATAFILE = pkg_resources.resource_filename(__name__, "data")
+print(DATAFILE)
+
 
 
 #import preprocessor
@@ -80,13 +82,19 @@ def load_data(dataset_config):
     # Get the directory containing the script
     script_dir = os.path.dirname(script_path)
     
-    print(script_dir)
+    #print(script_dir)
+   # print(DATAFILE)
 
     # Get the path of the dataset
+    #file_path = os.path.join(script_dir, dataset_config)
+  #  file_path = os.path.join(os.path.abspath(os.path.dirname(__file__)), dataset_config)
     file_path = os.path.join(script_dir, dataset_config)
-    file_path = os.path.join(os.path.abspath(os.path.dirname(__file__)), dataset_config)
+    print(file_path)
 
     if dataset_config == 'data/BostonHousing/housing.data':
+        #DATAFILE = pkg_resources.resource_filename(__name__, "data/BostonHousing/housing.data")
+        
+        #with open(file_path, "rt") as f:
         with open(file_path, "rt") as f:
             lines = f.readlines()
             data = []
@@ -102,6 +110,7 @@ def load_data(dataset_config):
             X = pd.DataFrame(data[:, :-1], columns=VARIABLES_BH[:-1])
             Y = Y = dataset[VARIABLES_BH[-1]]
     else:
+        #DATAFILE = pkg_resources.resource_filename(__name__, "data/WineQuality/housing.data")
         data = pd.read_csv(file_path, header=None)
         data = data[0].str.split(';', expand=True)
         data.columns = data.iloc[0]
