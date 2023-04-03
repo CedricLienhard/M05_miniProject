@@ -1,0 +1,10 @@
+*~
+.ipynb_checkpoints
+__pycache__/
+sphinx/
+.coverage
+*.egg-info/
+.htmlcov/
+.cover/
+dist/
+envM05Project
