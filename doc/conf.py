@@ -65,6 +65,9 @@ source_suffix = ".rst"
 # The master toctree document.
 master_doc = "index"
 
+# Grab the setup entry
+
+
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
 exclude_patterns = ["links.rst", "README.rst"]
@@ -80,7 +83,7 @@ short_description = u"M05 mini-project about reproducibility"
 # a list of builtin themes.
 #
 html_theme = "sphinx_rtd_theme"
-
+html_logo = 'img/Doc_image.png'
 
 
 # Add any paths that contain custom static files (such as style sheets) here,
