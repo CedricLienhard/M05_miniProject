@@ -11,7 +11,7 @@ The main function can be called with different arguments, that can be shown by t
 
 .. code-block:: sh
 
-   (project) $ python main.py --help 
+   (project) $ python -m src.main.py --help 
 
 Which should output the following :
 
@@ -44,7 +44,7 @@ It's also possible to call the main.py function without any arguments. In this c
 
 .. code-block:: sh
 
-   (project) $ python main.py
+   (project) $ python -m src.main.py
 
 The default arguments are : 
 
