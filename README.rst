@@ -6,6 +6,8 @@
    :target: https://github.com/CedricLienhard/M05_miniProject
 .. image::  https://img.shields.io/badge/docs-latest-orange.svg
    :target: https://cedriclienhard.github.io/M05_miniProject/
+.. image:: https://img.shields.io/badge/pypi-project-blueviolet.svg
+   :target: https://test.pypi.org/project/src-bostonHousingWineQuality
 
 ======================================
  M05 - Mini project : Reproducibility
