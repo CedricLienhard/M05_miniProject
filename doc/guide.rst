@@ -7,7 +7,7 @@ General Use
 
 This guide explains how to use this package and obtain the same results as shown in the :ref:`results` section.
 
-The main function can be called with different arguments, that can be shown by typing :
+The main function can be called with different arguments, that can be shown by typing:
 
 .. code-block:: sh
 
@@ -31,7 +31,7 @@ Which should output the following :
       --ml_model {linear_regression,regression_trees}
                         Name of the machine learning algorithm to use
 
-As shown in the help message, the main.py function can be called with different arguments, which are :
+As shown in the help message, the main.py function can be called with different arguments, which are:
 
 - Dataset -> choice between 2 datasets
 - Protocol -> choice between 3 protocols 
@@ -46,7 +46,7 @@ It's also possible to call the main.py function without any arguments. In this c
 
    (project) $ python -m src.main.py
 
-The default arguments are : 
+The default arguments are: 
 
 - boston_dataset
 - protocol1
