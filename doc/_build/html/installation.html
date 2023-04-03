@@ -34,6 +34,7 @@
           
           <a href="index.html" class="icon icon-home">
             M05_miniProject
+              <img src="_static/Doc_image.png" class="logo" alt="Logo"/>
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -45,7 +46,11 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <!-- Local TOC -->
               <div class="local-toc"><ul>
-<li><a class="reference internal" href="#">Installation</a></li>
+<li><a class="reference internal" href="#">Installation</a><ul>
+<li><a class="reference internal" href="#from-testpypi">From TestPyPi</a></li>
+<li><a class="reference internal" href="#complete-installation">Complete Installation</a></li>
+</ul>
+</li>
 </ul>
 </div>
         </div>
@@ -74,17 +79,48 @@
              
   <section id="installation">
 <h1>Installation<a class="headerlink" href="#installation" title="Permalink to this heading"></a></h1>
-<p>This package depends on <a class="reference external" href="https://numpy.scipy.org">numpy</a> and <a class="reference external" href="https://www.scipy.org">scipy</a> and <a class="reference external" href="https://pandas.pydata.org/docs/">panda</a>  to run properly. Please install a
-modern version of these packages before trying to run the code examples. A file called <cite>environment.yml</cite> is included with all the packages
-typically used when running this package code.</p>
-<p>To download a copy of this package, clone it from its repository in GitHub:</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>git<span class="w"> </span>clone<span class="w"> </span>git@github.com:CedricLienhard/M05_miniProject<span class="w"> </span>project
-$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>project
-$<span class="w"> </span>conda<span class="w"> </span>env<span class="w"> </span>create<span class="w"> </span>-f<span class="w"> </span>environment.yml<span class="w"> </span>-n<span class="w"> </span>project
-$<span class="w"> </span>conda<span class="w"> </span>activate<span class="w"> </span>project
-<span class="o">(</span>project<span class="o">)</span><span class="w"> </span>$<span class="w"> </span><span class="c1">#you are ready to run baselines!</span>
-</pre></div>
-</div>
+<p>This section shows how to install the package in order to reproduce our results.</p>
+<section id="from-testpypi">
+<h2>From TestPyPi<a class="headerlink" href="#from-testpypi" title="Permalink to this heading"></a></h2>
+<p>As this is a toy project, the package was only deployed on TestPyPi and not PyPi.</p>
+<p>You can simply us ‘pip’ to install the full package.</p>
+<ol class="arabic simple">
+<li><dl class="simple">
+<dt>First create a new virtual environment and activate it:</dt><dd></dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Install the package from TestPyPi with pip:</dt><dd></dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Run the package:</dt><dd></dd>
+</dl>
+</li>
+</ol>
+</section>
+<section id="complete-installation">
+<h2>Complete Installation<a class="headerlink" href="#complete-installation" title="Permalink to this heading"></a></h2>
+<p>By proceeding this way, you won’t be able to see the actual source code. If you want to access it, you can either check it out on github or clone the content to a local directory.</p>
+<ol class="arabic simple">
+<li><dl class="simple">
+<dt>Clone the Github repository to a local directory and go to that new folder:</dt><dd></dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Create a new virtual environment and activate it:</dt><dd></dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Install all the necessary packages, which are listed in 2 .txt files:</dt><dd></dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Run the main.py file, which is located in the ‘src’ folder:</dt><dd></dd>
+</dl>
+</li>
+</ol>
+</section>
 </section>
 
 
