@@ -18,7 +18,7 @@ def train_model(model, X_train, Y_train):
         Gives the machine learning model to apply
     X_train : DataFrame
         Gives the data to train on it
-    Y_train : array-like
+    Y_train : array
         It is the exact that must be reached as best as possible by the model 
 
     Returns
