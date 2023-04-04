@@ -8,17 +8,18 @@ from sklearn import preprocessing
 
 
 def normalize_minMaxScaler(data_to_process):
-    """
-    min max scaler normalization
+    """min max scaler normalization
 
     Parameters
-    ==========
-    To be filled !
-                
+    -----------
+    data_to_process : DataFrame
+        It is the data to process (the X)
+                    
     Returns
-    =======
-    To be filled !
-
+    -----------
+    DataFrame
+        processedData
+        returns the data processed with the min max scaler normalization 
     """
     min_max_scaler = preprocessing.MinMaxScaler()
     processedData = min_max_scaler.fit_transform(data_to_process)
@@ -27,17 +28,18 @@ def normalize_minMaxScaler(data_to_process):
 
 
 def normalize_standardScaler(data_to_process):
-    """
-    standard scaler normalization
+    """standard scaler normalization
 
     Parameters
-    ==========
-    To be filled !
-                
+    -----------
+    data_to_process : DataFrame
+        It is the data to process (the X)
+                    
     Returns
-    =======
-    To be filled !
-
+    -----------
+    DataFrame
+        processedData
+        returns the data processed with the standard scaler normalization 
     """
     scaler = preprocessing.StandardScaler().fit(data_to_process)
     processedData = scaler.transform(data_to_process)
@@ -46,17 +48,20 @@ def normalize_standardScaler(data_to_process):
 
 
 def normalize_polynomialFeatures(data_to_process, polyDegree):
-    """
-    polynomial normalization
+    """polynomial normalization
 
     Parameters
-    ==========
-    To be filled !
-                
+    -----------
+    data_to_process : DataFrame
+        It is the data to process (the X)
+    polyDegree : int 
+        The degree of the polynomial used in the normalization
+                    
     Returns
-    =======
-    To be filled !
-
+    -----------
+    DataFrame
+        processedData
+        returns the data processed with the polynomial normalization 
     """
     poly = preprocessing.PolynomialFeatures(
         degree=polyDegree, interaction_only=False, include_bias=True
@@ -67,17 +72,20 @@ def normalize_polynomialFeatures(data_to_process, polyDegree):
 
 
 def apply_selected_preprocessing(selected_preprocessing, data_to_process):
-    """
-    apply given preprocessing type on the the data
+    """apply given preprocessing type on the data
 
     Parameters
-    ==========
-    To be filled !
-                
-    Returns
-    =======
-    To be filled !
+    -----------
+    selected_preprocessing : str
+        gives which preprocess is selected (1,2 or 3)
+    data_to_process : DataFrame 
+        It is the data to process (the X)
 
+    Returns
+    -----------
+    DataFrame
+        processedData
+        returns the data processed with the selected normalization 
     """
     # list of available functions
     preprocessing_choices = [

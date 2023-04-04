@@ -9,10 +9,14 @@ import argparse
 import configparser
 
 
-from . import database
-from . import preprocessor
-from . import algorithm
-from . import analysis
+#from . import database
+import database
+import preprocessor
+import algorithm
+import analysis
+#from . import preprocessor
+#from . import algorithm
+#from . import analysis
 
 
 datasets = {
