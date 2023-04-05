@@ -16,43 +16,43 @@ Boston Housing Price
 
    +------------+--------------------+------------------+---------------------------+
    | Protocol   | Preprocessing Algo | ML Algo          | Mean Absolute Error       |
-   |            |                    |                  | (Training set / Test set) |
+   | (%)        |                    |                  | (Training set / Test set) |
    +============+====================+==================+===========================+
-   | protocol 1 | min-max            | linear regression| 3.131 / 3.913             |
+   | 50-50      | min-max            | linear regression| 3.131 / 3.913             |
    +------------+--------------------+------------------+---------------------------+
-   | protocol 1 | min-max            | decision tree    | 1.713 / 3.857             |
+   | 50-50      | min-max            | regression tree  | 1.713 / 3.857             |
    +------------+--------------------+------------------+---------------------------+
-   | protocol 1 | standard           | linear regression| 3.131 / 3.632             |
+   | 50-50      | standard           | linear regression| 3.131 / 3.632             |
    +------------+--------------------+------------------+---------------------------+
-   | protocol 1 | standard           | decision tree    | 1.713 / 3.393             |
+   | 50-50      | standard           | regression tree  | 1.713 / 3.393             |
    +------------+--------------------+------------------+---------------------------+
-   | protocol 1 | polynomial         | linear regression| 2.119 / 3.492             |
+   | 50-50      | polynomial         | linear regression| 2.119 / 3.492             |
    +------------+--------------------+------------------+---------------------------+
-   | protocol 1 | polynomial         | decision tree    | 1.445 / 2.986             |
+   | 50-50      | polynomial         | regression tree  | 1.445 / 2.986             |
    +------------+--------------------+------------------+---------------------------+
-   | protocol 2 | min-max            | linear regression| 3.084 / 3.977             |
+   | 70-30      | min-max            | linear regression| 3.084 / 3.978             |
    +------------+--------------------+------------------+---------------------------+
-   | protocol 2 | min-max            | decision tree    | 1.857 / 3.211             |
+   | 70-30      | min-max            | regression tree  | 1.857 / 3.211             |
    +------------+--------------------+------------------+---------------------------+
-   | protocol 2 | standard           | linear regression| 3.084 / 3.693             |
+   | 70-30      | standard           | linear regression| 3.084 / 3.693             |
    +------------+--------------------+------------------+---------------------------+
-   | protocol 2 | standard           | decision tree    | 1.857 / 3.521             |
+   | 70-30      | standard           | regression tree  | 1.857 / 3.521             |
    +------------+--------------------+------------------+---------------------------+
-   | protocol 2 | polynomial         | linear regression| 1.632 / 2.865             |
+   | 70-30      | polynomial         | linear regression| 1.632 / 2.865             |
    +------------+--------------------+------------------+---------------------------+
-   | protocol 2 | polynomial         | decision tree    | 1.644 / 3.055             |
+   | 70-30      | polynomial         | regression tree  | 1.644 / 3.055             |
    +------------+--------------------+------------------+---------------------------+
-   | protocol 3 | min-max            | linear regression| 3.305 / 4.542             |
+   | 90-10      | min-max            | linear regression| 3.305 / 4.542             |
    +------------+--------------------+------------------+---------------------------+
-   | protocol 3 | min-max            | decision tree    | 1.828 / 3.251             |
+   | 90-10      | min-max            | regression tree  | 1.828 / 3.251             |
    +------------+--------------------+------------------+---------------------------+
-   | protocol 3 | standard           | linear regression| 3.305 / 3.200             |
+   | 90-10      | standard           | linear regression| 3.305 / 3.200             |
    +------------+--------------------+------------------+---------------------------+
-   | protocol 3 | standard           | decision tree    | 1.828 / 3.171             |
+   | 90-10      | standard           | regression tree  | 1.828 / 3.171             |
    +------------+--------------------+------------------+---------------------------+
-   | protocol 3 | polynomial         | linear regression| 1.816 / 2.170             |
+   | 90-10      | polynomial         | linear regression| 1.816 / 2.170             |
    +------------+--------------------+------------------+---------------------------+
-   | protocol 3 | polynomial         | decision tree    | 1.694 / 2.254             |
+   | 90-10      | polynomial         | regression tree  | 1.694 / 2.254             |
    +------------+--------------------+------------------+---------------------------+
 
 =======
@@ -66,43 +66,43 @@ White Wine Quality
 
    +------------+--------------------+------------------+---------------------------+
    | Protocol   | Preprocessing Algo | ML Algo          | Mean Absolute Error       |
-   |            |                    |                  | (Training set / Test set) |
+   | (%)        |                    |                  | (Training set / Test set) |
    +============+====================+==================+===========================+
-   | protocol 1 | min-max            | linear regression| 0.593 / 0.772             |
+   | 50-50      | min-max            | linear regression| 0.593 / 0.772             |
    +------------+--------------------+------------------+---------------------------+
-   | protocol 1 | min-max            | decision tree    | 0.486 / 0.558             |
+   | 50-50      | min-max            | regression tree  | 0.486 / 0.558             |
    +------------+--------------------+------------------+---------------------------+
-   | protocol 1 | standard           | linear regression| 0.593 / 0.575             |
+   | 50-50      | standard           | linear regression| 0.593 / 0.575             |
    +------------+--------------------+------------------+---------------------------+
-   | protocol 1 | standard           | decision tree    | 0.486 / 0.535             |
+   | 50-50      | standard           | regression tree  | 0.486 / 0.535             |
    +------------+--------------------+------------------+---------------------------+
-   | protocol 1 | polynomial         | linear regression| 0.552 / 0.560             |
+   | 50-50      | polynomial         | linear regression| 0.552 / 0.560             |
    +------------+--------------------+------------------+---------------------------+
-   | protocol 1 | polynomial         | decision tree    | 0.472 / 0.521             |
+   | 50-50      | polynomial         | regression tree  | 0.472 / 0.521             |
    +------------+--------------------+------------------+---------------------------+
-   | protocol 2 | min-max            | linear regression| 0.592 / 0.792             |
+   | 70-30      | min-max            | linear regression| 0.592 / 0.792             |
    +------------+--------------------+------------------+---------------------------+
-   | protocol 2 | min-max            | decision tree    | 0.502 / 0.683             |
+   | 70-30      | min-max            | regression tree  | 0.502 / 0.683             |
    +------------+--------------------+------------------+---------------------------+
-   | protocol 2 | standard           | linear regression| 0.592 / 0.567             |
+   | 70-30      | standard           | linear regression| 0.592 / 0.567             |
    +------------+--------------------+------------------+---------------------------+
-   | protocol 2 | standard           | decision tree    | 0.502 / 0.535             |
+   | 70-30      | standard           | regression tree  | 0.502 / 0.535             |
    +------------+--------------------+------------------+---------------------------+
-   | protocol 2 | polynomial         | linear regression| 0.555 / 0.545             |
+   | 70-30      | polynomial         | linear regression| 0.555 / 0.545             |
    +------------+--------------------+------------------+---------------------------+
-   | protocol 2 | polynomial         | decision tree    | 0.479 / 0.516             |
+   | 70-30      | polynomial         | regression tree  | 0.479 / 0.516             |
    +------------+--------------------+------------------+---------------------------+
-   | protocol 3 | min-max            | linear regression| 0.589 / 0.682             |
+   | 90-10      | min-max            | linear regression| 0.589 / 0.682             |
    +------------+--------------------+------------------+---------------------------+
-   | protocol 3 | min-max            | decision tree    | 0.499 / 0.606             |
+   | 90-10      | min-max            | regression tree  | 0.499 / 0.606             |
    +------------+--------------------+------------------+---------------------------+
-   | protocol 3 | standard           | linear regression| 0.589 / 0.536             |
+   | 90-10      | standard           | linear regression| 0.589 / 0.536             |
    +------------+--------------------+------------------+---------------------------+
-   | protocol 3 | standard           | decision tree    | 0.499 / 0.506             |
+   | 90-10      | standard           | regression tree  | 0.499 / 0.506             |
    +------------+--------------------+------------------+---------------------------+
-   | protocol 3 | polynomial         | linear regression| 0.553 / 0.516             |
+   | 90-10      | polynomial         | linear regression| 0.553 / 0.516             |
    +------------+--------------------+------------------+---------------------------+
-   | protocol 3 | polynomial         | decision tree    | 0.479 / 0.465             |
+   | 90-10      | polynomial         | regression tree  | 0.479 / 0.465             |
    +------------+--------------------+------------------+---------------------------+
 
 =======
@@ -116,41 +116,41 @@ Red Wine Quality
 
    +------------+--------------------+------------------+---------------------------+
    | Protocol   | Preprocessing Algo | ML Algo          | Mean Absolute Error       |
-   |            |                    |                  | (Training set / Test set) |
+   | (%)        |                    |                  | (Training set / Test set) |
    +============+====================+==================+===========================+
-   | protocol 1 | min-max            | linear regression| 0.510 / 0.527             |
+   | 50-50      | min-max            | linear regression| 0.510 / 0.527             |
    +------------+--------------------+------------------+---------------------------+
-   | protocol 1 | min-max            | decision tree    | 0.392 / 0.475             |
+   | 50-50      | min-max            | regression tree  | 0.392 / 0.475             |
    +------------+--------------------+------------------+---------------------------+
-   | protocol 1 | standard           | linear regression| 0.510 / 0.503             |
+   | 50-50      | standard           | linear regression| 0.510 / 0.503             |
    +------------+--------------------+------------------+---------------------------+
-   | protocol 1 | standard           | decision tree    | 0.392 / 0.461             |
+   | 50-50      | standard           | regression tree  | 0.392 / 0.461             |
    +------------+--------------------+------------------+---------------------------+
-   | protocol 1 | polynomial         | linear regression| 0.470 / 0.520             |
+   | 50-50      | polynomial         | linear regression| 0.470 / 0.520             |
    +------------+--------------------+------------------+---------------------------+
-   | protocol 1 | polynomial         | decision tree    | 0.357 / 0.471             |
+   | 50-50      | polynomial         | regression tree  | 0.357 / 0.471             |
    +------------+--------------------+------------------+---------------------------+
-   | protocol 2 | min-max            | linear regression| 0.503 / 0.520             |
+   | 70-30      | min-max            | linear regression| 0.503 / 0.520             |
    +------------+--------------------+------------------+---------------------------+
-   | protocol 2 | min-max            | decision tree    | 0.387 / 0.529             |
+   | 70-30      | min-max            | regression tree  | 0.387 / 0.529             |
    +------------+--------------------+------------------+---------------------------+
-   | protocol 2 | standard           | linear regression| 0.503 / 0.502             |
+   | 70-30      | standard           | linear regression| 0.503 / 0.502             |
    +------------+--------------------+------------------+---------------------------+
-   | protocol 2 | standard           | decision tree    | 0.387 / 0.473             |
+   | 70-30      | standard           | regression tree  | 0.387 / 0.473             |
    +------------+--------------------+------------------+---------------------------+
-   | protocol 2 | polynomial         | linear regression| 0.471 / 0.495             |
+   | 70-30      | polynomial         | linear regression| 0.471 / 0.495             |
    +------------+--------------------+------------------+---------------------------+
-   | protocol 2 | polynomial         | decision tree    | 0.367 / 0.508             |
+   | 70-30      | polynomial         | regression tree  | 0.367 / 0.508             |
    +------------+--------------------+------------------+---------------------------+
-   | protocol 3 | min-max            | linear regression| 0.507 / 0.774             |
+   | 90-10      | min-max            | linear regression| 0.507 / 0.774             |
    +------------+--------------------+------------------+---------------------------+
-   | protocol 3 | min-max            | decision tree    | 0.415 / 0.456             |
+   | 90-10      | min-max            | regression tree  | 0.415 / 0.456             |
    +------------+--------------------+------------------+---------------------------+
-   | protocol 3 | standard           | linear regression| 0.507 / 0.461             |
+   | 90-10      | standard           | linear regression| 0.507 / 0.461             |
    +------------+--------------------+------------------+---------------------------+
-   | protocol 3 | standard           | decision tree    | 0.415 / 0.462             |
+   | 90-10      | standard           | regression tree  | 0.415 / 0.462             |
    +------------+--------------------+------------------+---------------------------+
-   | protocol 3 | polynomial         | linear regression| 0.478 / 0.445             |
+   | 90-10      | polynomial         | linear regression| 0.478 / 0.445             |
    +------------+--------------------+------------------+---------------------------+
-   | protocol 3 | polynomial         | decision tree    | 0.402 / 0.344             |
+   | 90-10      | polynomial         | regression tree  | 0.402 / 0.344             |
    +------------+--------------------+------------------+---------------------------+

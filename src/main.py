@@ -112,7 +112,7 @@ def main():
                     mae_train, mae_test = analysis.compute_performance(
                         Y_train, Y_train_predict, Y_test, Y_test_predict
                     )
-                    print(protocol, " | ", preprocessing, " | ", algo, " | ", mae_train, "/", mae_test)
+                    print(protocol, " | ", preprocessing, " | ", algo, " | {:.3f}".format(mae_train), "/ {:.3f}".format(mae_test))
                     print("---------------------------------------------------------------------------------------")
         print(" ")
 
