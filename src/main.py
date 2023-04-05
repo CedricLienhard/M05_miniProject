@@ -9,14 +9,14 @@ import argparse
 import configparser
 
 
-#from . import database
-import database
-import preprocessor
-import algorithm
-import analysis
-#from . import preprocessor
-#from . import algorithm
-#from . import analysis
+from . import database
+#import database
+#import preprocessor
+#import algorithm
+#import analysis
+from . import preprocessor
+from . import algorithm
+from . import analysis
 
 
 datasets = {
@@ -27,10 +27,10 @@ datasets = {
 }
 
 protocols = {
-    "protocol1": ["proto1"],
-    "protocol2": ["proto2"],
-    "protocol3": ["proto3"],
-    "all_protocols": ["proto1", "proto2", "proto3"]
+    "p50_50": ["50-50"],
+    "p70_30": ["70-30"],
+    "p90_10": ["90-10"],
+    "all_protocols": ["50-50", "70-30", "90-10"]
 }
 
 preprocessing_methods = {
@@ -87,16 +87,15 @@ def main():
     ) = get_info_from_user()
 
     for dataset in dataset_config:
+        print("=======================================================================================")
         print("In dataset: ", dataset)
-        print("===============================================================================================")
+        print("=======================================================================================")
+        print("Protocol | Preprocessing | ML algorithm | Train/Test MAE")
+        print("---------------------------------------------------------------------------------------")
         for protocol in protocol_config:
-            print("  For protocol: ", protocol)
-            print("  ---------------------------------------------------------------------------------------------")
             X_train, X_test, Y_train, Y_test = database.get(dataset, protocol)
 
             for preprocessing in preprocessing_config:
-                print("    With preprocessing: ", preprocessing)
-                print("    -------------------------------------------------------------------------------------------")
                 X_train_norm = preprocessor.apply_selected_preprocessing(
                     preprocessing, X_train
                 )
@@ -105,8 +104,6 @@ def main():
                 )
 
                 for algo in ml_config:
-                    print("      Using method: ", algo)
-                    print("      -----------------------------------------------------------------------------------------")
                     trained_model = algorithm.train_model(
                         algo, X_train_norm, Y_train
                     )
@@ -115,8 +112,9 @@ def main():
                     mae_train, mae_test = analysis.compute_performance(
                         Y_train, Y_train_predict, Y_test, Y_test_predict
                     )
-                    print("        Training/ Testing set Mean Absolute Error:", mae_train, "/", mae_test)
-                    print("        ---------------------------------------------------------------------------------------")
+                    print(protocol, " | ", preprocessing, " | ", algo, " | ", mae_train, "/", mae_test)
+                    print("---------------------------------------------------------------------------------------")
+        print(" ")
 
     
 if __name__ == '__main__':

@@ -19,9 +19,9 @@ DATAFILE = pkg_resources.resource_filename(__name__, "")
 #import preprocessor
 
 PROTOCOLS = {
-    "proto1": {"train": 0.5, "test": 0.5},
-    "proto2": {"train": 0.7, "test": 0.3},
-    "proto3": {"train": 0.9, "test": 0.1},
+    "50-50": {"train": 0.5, "test": 0.5},
+    "70-30": {"train": 0.7, "test": 0.3},
+    "90-10": {"train": 0.9, "test": 0.1},
 }
 
 VARIABLES_BH = [
