@@ -52,7 +52,7 @@ jobs:
         run: | # see 'setup.py' file to understand what src-main is
           src-main --help  #checks help function works at least 
           src-main  #basic test case
-          src-main --protocol=protocol1  #filter by protocol
+          src-main --protocol=p50_50  #filter by protocol
           pytest -sv --cov=src src
           coveralls --service=github
 
