@@ -1,6 +1,6 @@
-import analysis
-import algorithm
-import preprocessor
+from . import analysis
+from . import algorithm
+from . import preprocessor
 import numpy as np
 
 
