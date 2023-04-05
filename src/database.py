@@ -78,20 +78,11 @@ def load_data(dataset_config):
     # Get the directory containing the script
     script_dir = os.path.dirname(script_path)
     
-    #print(script_dir)
-   # print(DATAFILE)
 
     # Get the path of the dataset
-    #file_path = os.path.join(script_dir, dataset_config)
-  #  file_path = os.path.join(os.path.abspath(os.path.dirname(__file__)), dataset_config)
-    #print(DATAFILE)
     file_path = os.path.join(DATAFILE, dataset_config)
-   # print(file_path)
 
-    if dataset_config == 'data/BostonHousing/housing.data':
-        #DATAFILE = pkg_resources.resource_filename(__name__, "data/BostonHousing/housing.data")
-        
-        #with open(file_path, "rt") as f:
+    if dataset_config == 'data/BostonHousing/housing.data':        
         with open(file_path, "rt") as f:
             lines = f.readlines()
             data = []
@@ -107,7 +98,6 @@ def load_data(dataset_config):
             X = pd.DataFrame(data[:, :-1], columns=VARIABLES_BH[:-1])
             Y = Y = dataset[VARIABLES_BH[-1]]
     else:
-        #DATAFILE = pkg_resources.resource_filename(__name__, "data/WineQuality/housing.data")
         data = pd.read_csv(file_path, header=None)
         data = data[0].str.split(';', expand=True)
         data.columns = data.iloc[0]
@@ -125,7 +115,7 @@ def get(dataset_config, protocol_config):
     dataset_config : str
         define which dataset to load (ex: boston_dataset)
     protocol_config : str
-        define which protocol to apply (ex: protocol1 -> 50% / 50% )
+        define which protocol to apply (ex: 50-50 -> 50% / 50% )
                 
     Returns
     ----------

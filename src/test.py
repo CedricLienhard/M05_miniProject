@@ -86,6 +86,12 @@ def test_load_data():
     assert X_WQR.shape == WQR_expected_shape
     assert X_WQW.shape == WQW_expected_shape
 
+def test_get():
+    X_train, X_test, Y_train, Y_test = database.get("data/BostonHousing/housing.data", "50-50")
+    assert len(X_train) == len(Y_train)
+    assert len(X_test) == len(Y_test)
+    assert len(X_train) + len(X_test) == 506
+    assert len(Y_train) + len(Y_test) == 506
 
 test_MAE()
 test_train_model()
@@ -94,3 +100,4 @@ test_normalize_standardScaler()
 test_normalize_minMaxScaler()
 test_normalize_polynomialFeatures()
 test_load_data()
+test_get()

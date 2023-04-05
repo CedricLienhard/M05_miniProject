@@ -77,7 +77,7 @@ def apply_selected_preprocessing(selected_preprocessing, data_to_process):
     Parameters
     -----------
     selected_preprocessing : str
-        gives which preprocess is selected (1,2 or 3)
+        gives which preprocess is selected (min_max, standard or polynomial)
     data_to_process : DataFrame 
         It is the data to process (the X)
 
