@@ -53,7 +53,7 @@ jobs:
           src-main --help  #checks help function works at least 
           src-main  #basic test case
           src-main --protocol=p50_50  #filter by protocol
-          pytest -sv --cov=src test.py
+          pytest -sv --cov=src src/test.py
           coveralls --service=github
 
       - name: Build documentation
