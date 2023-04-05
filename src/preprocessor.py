@@ -94,11 +94,11 @@ def apply_selected_preprocessing(selected_preprocessing, data_to_process):
         normalize_polynomialFeatures,
     ]
 
-    if selected_preprocessing == "1":
+    if selected_preprocessing == "min_max":
         processed_data = preprocessing_choices[0](data_to_process)
-    elif selected_preprocessing == "2":
+    elif selected_preprocessing == "standard":
         processed_data = preprocessing_choices[1](data_to_process)
-    elif selected_preprocessing == "3":
+    elif selected_preprocessing == "polynomial":
         processed_data = preprocessing_choices[2](data_to_process, 2)
     else:
         print("Invalid preprocessing choice !")

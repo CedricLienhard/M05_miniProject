@@ -31,7 +31,7 @@ def train_model(model, X_train, Y_train):
         # LR model
         lin_model = LinearRegression()
         trained_model = lin_model.fit(X_train, Y_train)
-    elif model == "regression_trees":
+    elif model == "regression_tree":
         # RT model
         rt_model = DecisionTreeRegressor(random_state=44, criterion="absolute_error", max_depth=5)
         trained_model = rt_model.fit(X_train, Y_train)
