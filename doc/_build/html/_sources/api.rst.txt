@@ -5,33 +5,33 @@
 Database
 --------
 
-.. automodule:: database
+.. automodule:: src.database
    :members:
 
 
 Pre-processor
 -------------
 
-.. automodule:: preprocessor
+.. automodule:: src.preprocessor
    :members:
 
 
 Machine Learning Algorithm
 --------------------------
 
-.. automodule:: algorithm
+.. automodule:: src.algorithm
    :members:
 
 
 Analysis
 --------
 
-.. automodule:: analysis
+.. automodule:: src.analysis
    :members:
 
 
 Testing
 -------
 
-.. automodule:: test
+.. automodule:: src.test
    :members:

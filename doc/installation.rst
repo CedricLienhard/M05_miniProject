@@ -23,7 +23,7 @@ You can simply us 'pip' to install the full package.
 
 .. code-block:: sh
 
-   $ pip install --extra-index-url https://test.pypi.org/simple src-bostonHousingWineQuality 
+   $ pip install --use-feature=2020-resolver --extra-index-url https://test.pypi.org/simple src-bostonHousingWineQuality 
 
 
 3. Run the package:
@@ -36,7 +36,7 @@ You can simply us 'pip' to install the full package.
 Complete Installation
 -----------------------
 
-By proceeding this way, you won't be able to see the actual source code. If you want to access it, you can either check it out on github or clone the content to a local directory.
+Proceeding with the above installation won't provide you the source code. If you want to access it, you can either check it out on github or clone the content to a local directory.
 
 1. Clone the Github repository to a local directory and go to that new folder:
 

@@ -13,6 +13,7 @@ Welcome to M05_miniProject's documentation!
    installation
    results
    guide
+   license
    
    api
    

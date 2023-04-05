@@ -20,7 +20,7 @@
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="prev" title="User Guide" href="guide.html" /> 
+    <link rel="prev" title="Licensing" href="license.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -46,11 +46,28 @@
               <!-- Local TOC -->
               <div class="local-toc"><ul>
 <li><a class="reference internal" href="#">Python API</a><ul>
-<li><a class="reference internal" href="#database">Database</a></li>
-<li><a class="reference internal" href="#pre-processor">Pre-processor</a></li>
-<li><a class="reference internal" href="#machine-learning-algorithm">Machine Learning Algorithm</a></li>
-<li><a class="reference internal" href="#analysis">Analysis</a></li>
-<li><a class="reference internal" href="#module-test">Testing</a></li>
+<li><a class="reference internal" href="#module-src.database">Database</a><ul>
+<li><a class="reference internal" href="#src.database.get"><code class="docutils literal notranslate"><span class="pre">get()</span></code></a></li>
+<li><a class="reference internal" href="#src.database.load_data"><code class="docutils literal notranslate"><span class="pre">load_data()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-src.preprocessor">Pre-processor</a><ul>
+<li><a class="reference internal" href="#src.preprocessor.apply_selected_preprocessing"><code class="docutils literal notranslate"><span class="pre">apply_selected_preprocessing()</span></code></a></li>
+<li><a class="reference internal" href="#src.preprocessor.normalize_minMaxScaler"><code class="docutils literal notranslate"><span class="pre">normalize_minMaxScaler()</span></code></a></li>
+<li><a class="reference internal" href="#src.preprocessor.normalize_polynomialFeatures"><code class="docutils literal notranslate"><span class="pre">normalize_polynomialFeatures()</span></code></a></li>
+<li><a class="reference internal" href="#src.preprocessor.normalize_standardScaler"><code class="docutils literal notranslate"><span class="pre">normalize_standardScaler()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-src.algorithm">Machine Learning Algorithm</a><ul>
+<li><a class="reference internal" href="#src.algorithm.predict"><code class="docutils literal notranslate"><span class="pre">predict()</span></code></a></li>
+<li><a class="reference internal" href="#src.algorithm.train_model"><code class="docutils literal notranslate"><span class="pre">train_model()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-src.analysis">Analysis</a><ul>
+<li><a class="reference internal" href="#src.analysis.compute_performance"><code class="docutils literal notranslate"><span class="pre">compute_performance()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-src.test">Testing</a></li>
 </ul>
 </li>
 </ul>
@@ -81,20 +98,164 @@
              
   <section id="python-api">
 <h1>Python API<a class="headerlink" href="#python-api" title="Permalink to this heading"></a></h1>
-<section id="database">
-<h2>Database<a class="headerlink" href="#database" title="Permalink to this heading"></a></h2>
+<section id="module-src.database">
+<span id="database"></span><h2>Database<a class="headerlink" href="#module-src.database" title="Permalink to this heading"></a></h2>
+<p>Created on Fri Feb 17 13:44:51 2023</p>
+<p>&#64;author: Cedric</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="src.database.get">
+<span class="sig-prename descclassname"><span class="pre">src.database.</span></span><span class="sig-name descname"><span class="pre">get</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dataset_config</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">protocol_config</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/database.html#get"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.database.get" title="Permalink to this definition"></a></dt>
+<dd><p>Split the data for the dataset, according to the given protocol</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>dataset_config</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – define which dataset to load (ex: boston_dataset)</p></li>
+<li><p><strong>protocol_config</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – define which protocol to apply (ex: protocol1 -&gt; 50% / 50% )</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>X_train, X_test, Y_train, Y_test
+The value due to the repartitions in the train and the test</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.11)">tuple</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.database.load_data">
+<span class="sig-prename descclassname"><span class="pre">src.database.</span></span><span class="sig-name descname"><span class="pre">load_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dataset_config</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/database.html#load_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.database.load_data" title="Permalink to this definition"></a></dt>
+<dd><p>Loads the data according to the given configuration</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>dataset_config</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – define which dataset to load between the Boston housing or the Wine quality, red or white</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>X, Y
+X is the datas without the results column
+Y is the results column of the datas (ex: Price, quality)</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.11)">tuple</a></p>
+</dd>
+</dl>
+</dd></dl>
+
 </section>
-<section id="pre-processor">
-<h2>Pre-processor<a class="headerlink" href="#pre-processor" title="Permalink to this heading"></a></h2>
+<section id="module-src.preprocessor">
+<span id="pre-processor"></span><h2>Pre-processor<a class="headerlink" href="#module-src.preprocessor" title="Permalink to this heading"></a></h2>
+<p>Created on Fri Feb 17 20:33:56 2023</p>
+<p>&#64;author: Cedric</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="src.preprocessor.apply_selected_preprocessing">
+<span class="sig-prename descclassname"><span class="pre">src.preprocessor.</span></span><span class="sig-name descname"><span class="pre">apply_selected_preprocessing</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">selected_preprocessing</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_to_process</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/preprocessor.html#apply_selected_preprocessing"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.preprocessor.apply_selected_preprocessing" title="Permalink to this definition"></a></dt>
+<dd><p>apply given preprocessing type on the the data</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>!</strong> (<em>To be filled</em>) – </p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>To be filled !</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.preprocessor.normalize_minMaxScaler">
+<span class="sig-prename descclassname"><span class="pre">src.preprocessor.</span></span><span class="sig-name descname"><span class="pre">normalize_minMaxScaler</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data_to_process</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/preprocessor.html#normalize_minMaxScaler"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.preprocessor.normalize_minMaxScaler" title="Permalink to this definition"></a></dt>
+<dd><p>min max scaler normalization</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>!</strong> (<em>To be filled</em>) – </p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>To be filled !</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.preprocessor.normalize_polynomialFeatures">
+<span class="sig-prename descclassname"><span class="pre">src.preprocessor.</span></span><span class="sig-name descname"><span class="pre">normalize_polynomialFeatures</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data_to_process</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">polyDegree</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/preprocessor.html#normalize_polynomialFeatures"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.preprocessor.normalize_polynomialFeatures" title="Permalink to this definition"></a></dt>
+<dd><p>polynomial normalization</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>!</strong> (<em>To be filled</em>) – </p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>To be filled !</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.preprocessor.normalize_standardScaler">
+<span class="sig-prename descclassname"><span class="pre">src.preprocessor.</span></span><span class="sig-name descname"><span class="pre">normalize_standardScaler</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data_to_process</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/preprocessor.html#normalize_standardScaler"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.preprocessor.normalize_standardScaler" title="Permalink to this definition"></a></dt>
+<dd><p>standard scaler normalization</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>!</strong> (<em>To be filled</em>) – </p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>To be filled !</p>
+</dd>
+</dl>
+</dd></dl>
+
 </section>
-<section id="machine-learning-algorithm">
-<h2>Machine Learning Algorithm<a class="headerlink" href="#machine-learning-algorithm" title="Permalink to this heading"></a></h2>
+<section id="module-src.algorithm">
+<span id="machine-learning-algorithm"></span><h2>Machine Learning Algorithm<a class="headerlink" href="#module-src.algorithm" title="Permalink to this heading"></a></h2>
+<p>Created on Sat Feb 18 11:36:37 2023</p>
+<p>&#64;author: Cedric</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="src.algorithm.predict">
+<span class="sig-prename descclassname"><span class="pre">src.algorithm.</span></span><span class="sig-name descname"><span class="pre">predict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">trained_model</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/algorithm.html#predict"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.algorithm.predict" title="Permalink to this definition"></a></dt>
+<dd><p>Best fit for the input data according to the trained model</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>!</strong> (<em>To be filled</em>) – </p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>To be filled !</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.algorithm.train_model">
+<span class="sig-prename descclassname"><span class="pre">src.algorithm.</span></span><span class="sig-name descname"><span class="pre">train_model</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">X_train</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Y_train</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/algorithm.html#train_model"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.algorithm.train_model" title="Permalink to this definition"></a></dt>
+<dd><p>Optimizes the machine parameters to fit the input data</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>!</strong> (<em>To be filled</em>) – </p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>To be filled !</p>
+</dd>
+</dl>
+</dd></dl>
+
 </section>
-<section id="analysis">
-<h2>Analysis<a class="headerlink" href="#analysis" title="Permalink to this heading"></a></h2>
+<section id="module-src.analysis">
+<span id="analysis"></span><h2>Analysis<a class="headerlink" href="#module-src.analysis" title="Permalink to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="src.analysis.compute_performance">
+<span class="sig-prename descclassname"><span class="pre">src.analysis.</span></span><span class="sig-name descname"><span class="pre">compute_performance</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Y_train</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Y_train_predict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Y_test</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Y_test_predict</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/analysis.html#compute_performance"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.analysis.compute_performance" title="Permalink to this definition"></a></dt>
+<dd><p>Computes the MAE of the given train and test datasets</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>!</strong> (<em>To be filled</em>) – </p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>To be filled !</p>
+</dd>
+</dl>
+</dd></dl>
+
 </section>
-<section id="module-test">
-<span id="testing"></span><h2>Testing<a class="headerlink" href="#module-test" title="Permalink to this heading"></a></h2>
+<section id="module-src.test">
+<span id="testing"></span><h2>Testing<a class="headerlink" href="#module-src.test" title="Permalink to this heading"></a></h2>
 </section>
 </section>
 
@@ -102,7 +263,7 @@
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="guide.html" class="btn btn-neutral float-left" title="User Guide" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="license.html" class="btn btn-neutral float-left" title="Licensing" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 
   <hr/>

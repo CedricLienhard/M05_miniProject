@@ -1,7 +1,10 @@
-import analysis
-import algorithm
-import preprocessor
+from . import analysis
+from . import algorithm
+from . import preprocessor
+from . import database
 import numpy as np
+import pandas as pd
+from sklearn.datasets import make_regression
 
 
 def test_MAE():
@@ -15,6 +18,20 @@ def test_MAE():
     )
     assert mae_train == 0.5
     assert mae_test == 0.5
+
+def test_train_model():
+    # Generate some random data for testing
+    X, y = make_regression(n_samples=100, n_features=5, random_state=42)
+    X_df = pd.DataFrame(X, columns=[f"feature_{i}" for i in range(5)])
+    y_array = np.array(y)
+
+    # Train_the models
+    trained_LR_model = algorithm.train_model("linear_regression", X_df, y_array)
+    trained_RT_model = algorithm.train_model("regression_tree", X_df, y_array)
+
+    assert trained_LR_model is not None
+    assert trained_RT_model is not None
+
 
 
 def test_predict():
@@ -55,9 +72,32 @@ def test_normalize_polynomialFeatures():
         preprocessor.normalize_polynomialFeatures(data, 2), expected_output
     )
 
+def test_load_data():
+    # Test cases for load_data function
+    BH_dataset, BH_expected_shape = "data/BostonHousing/housing.data", (506, 13)
+    WQR_dataset, WQR_expected_shape = "data/WineQuality/winequality-red.csv", (1599, 11)
+    WQW_dataset, WQW_expected_shape = "data/WineQuality/winequality-white.csv", (4898, 11)
+
+    X_BH, Y_BH = database.load_data(BH_dataset)
+    X_WQR, Y_WQR = database.load_data(WQR_dataset)
+    X_WQW, Y_WQW = database.load_data(WQW_dataset)
+
+    assert X_BH.shape == BH_expected_shape
+    assert X_WQR.shape == WQR_expected_shape
+    assert X_WQW.shape == WQW_expected_shape
+
+def test_get():
+    X_train, X_test, Y_train, Y_test = database.get("data/BostonHousing/housing.data", "50-50")
+    assert len(X_train) == len(Y_train)
+    assert len(X_test) == len(Y_test)
+    assert len(X_train) + len(X_test) == 506
+    assert len(Y_train) + len(Y_test) == 506
 
 test_MAE()
+test_train_model()
 test_predict()
 test_normalize_standardScaler()
 test_normalize_minMaxScaler()
 test_normalize_polynomialFeatures()
+test_load_data()
+test_get()

@@ -10,71 +10,60 @@ import configparser
 
 
 from . import database
+#import database
+#import preprocessor
+#import algorithm
+#import analysis
 from . import preprocessor
 from . import algorithm
 from . import analysis
 
 
 datasets = {
-    "boston_dataset": "data/BostonHousing/housing.data",
-    "wine_white_dataset": "data/WineQuality/winequality-white.csv",
-    "wine_red_dataset": "data/WineQuality/winequality-red.csv",
+    "boston_dataset": ["data/BostonHousing/housing.data"],
+    "wine_white_dataset": ["data/WineQuality/winequality-white.csv"],
+    "wine_red_dataset": ["data/WineQuality/winequality-red.csv"],
+    "all_datasets" : ["data/BostonHousing/housing.data", "data/WineQuality/winequality-white.csv", "data/WineQuality/winequality-red.csv"]
 }
 
 protocols = {
-    "protocol1": "proto1",
-    "protocol2": "proto2",
-    "protocol3": "proto3"
+    "p50_50": ["50-50"],
+    "p70_30": ["70-30"],
+    "p90_10": ["90-10"],
+    "all_protocols": ["50-50", "70-30", "90-10"]
 }
 
 preprocessing_methods = {
-    "min_max_scaler": "1",
-    "standard_scaler": "2",
-    "polynomial_features": "3"
+    "min_max_scaler": ["min_max"],
+    "standard_scaler": ["standard"],
+    "polynomial_features": ["polynomial"],
+    "all_preprocessings": ["min_max", "standard", "polynomial"]
 }
 
 ml_models = {
-    "linear_regression": "linear_regression",
-    "regression_trees": "regression_trees"
+    "linear_regression": ["linear_regression"],
+    "regression_trees": ["regression_tree"],
+    "all_models": ["linear_regression", "regression_tree"]
 }
 
 
 def get_info_from_user():
-    """
-    Get input from user using argparse
-
-    Parameters
-    ==========
-    None
+    """Get input from user using argparse
 
     Returns
-    =======
-    To be filled !
-
+    ----------
+    tuple
+        dataset_config, protocol_config, preprocessing_config, ml_config
+        returns the configurations for dataset, protocol, preprocessing and the algorithm to apply
     """
-    # Define the configuration options
-    '''
-    config = configparser.ConfigParser()
-    config.read("config.ini")
-
-    datasets = config["datasets"].keys()
-    protocols = config["protocols"].keys()
-    preprocessing_methods = config["preprocessing_methods"].keys()
-    ml_models = config["ml_models"].keys()
-    '''
 
     # Define the command-line arguments
     parser = argparse.ArgumentParser()
-    parser.add_argument("--dataset", choices=list(datasets.keys()), default="boston_dataset", help='Name of the dataset to use')
-    parser.add_argument("--protocol", choices=list(protocols.keys()), default="protocol1", help='Name of the protocol to use')
-    parser.add_argument("--preprocessing", choices=list(preprocessing_methods.keys()), default="min_max_scaler", help='Name of the preprocessing algorithm to use')
-    parser.add_argument("--ml_model", choices=list(ml_models.keys()), default="linear_regression", help='Name of the machine learning algorithm to use')
-    '''
-    parser.add_argument("--dataset", choices=datasets, default="boston_dataset", help='Name of the dataset to use')
-    parser.add_argument("--protocol", choices=protocols, default="protocol1", help='Name of the protocol to use')
-    parser.add_argument("--preprocessing", choices=preprocessing_methods, default="min_max_scaler", help='Name of the preprocessing algorithm to use')
-    parser.add_argument("--ml_model", choices=ml_models, default="linear_regression", help='Name of the machine learning algorithm to use')
-'''
+    parser.add_argument("--dataset", choices=list(datasets.keys()), default="all_datasets", help='Name of the dataset to use')
+    parser.add_argument("--protocol", choices=list(protocols.keys()), default="all_protocols", help='Name of the protocol to use')
+    parser.add_argument("--preprocessing", choices=list(preprocessing_methods.keys()), default="all_preprocessings", help='Name of the preprocessing algorithm to use')
+    parser.add_argument("--ml_model", choices=list(ml_models.keys()), default="all_models", help='Name of the machine learning algorithm to use')
+
     # Parse the command-line arguments
     args = parser.parse_args()
 
@@ -84,12 +73,6 @@ def get_info_from_user():
     preprocessing_config = preprocessing_methods[args.preprocessing]
     ml_config = ml_models[args.ml_model]
     
-    '''dataset_config = config["datasets"][args.dataset]
-    dataset_config = datasets[args.dataset]
-    protocol_config = config["protocols"][args.protocol]
-    preprocessing_config = config["preprocessing_methods"][args.preprocessing]
-    ml_config = config["ml_models"][args.ml_model]
-'''
     return dataset_config, protocol_config, preprocessing_config, ml_config
 
 
@@ -102,28 +85,37 @@ def main():
         preprocessing_config,
         ml_config,
     ) = get_info_from_user()
-    
-    X_train, X_test, Y_train, Y_test = database.get(dataset_config, protocol_config)
-    
-    X_train_norm = preprocessor.apply_selected_preprocessing(
-        preprocessing_config, X_train
-    )
-    
-    X_test_norm = preprocessor.apply_selected_preprocessing(
-        preprocessing_config, X_test
-    )
-    
-    trained_model = algorithm.train_model(
-        ml_config, X_train_norm, Y_train
-    )
-    
 
-    Y_train_predict = algorithm.predict(X_train_norm, trained_model)
-    Y_test_predict = algorithm.predict(X_test_norm, trained_model)
-    
-    mae_train, mae_test = analysis.compute_performance(
-        Y_train, Y_train_predict, Y_test, Y_test_predict
-    )
+    for dataset in dataset_config:
+        print("=======================================================================================")
+        print("In dataset: ", dataset)
+        print("=======================================================================================")
+        print("Protocol | Preprocessing | ML algorithm | Train/Test MAE")
+        print("---------------------------------------------------------------------------------------")
+        for protocol in protocol_config:
+            X_train, X_test, Y_train, Y_test = database.get(dataset, protocol)
+
+            for preprocessing in preprocessing_config:
+                X_train_norm = preprocessor.apply_selected_preprocessing(
+                    preprocessing, X_train
+                )
+                X_test_norm = preprocessor.apply_selected_preprocessing(
+                    preprocessing, X_test
+                )
+
+                for algo in ml_config:
+                    trained_model = algorithm.train_model(
+                        algo, X_train_norm, Y_train
+                    )
+                    Y_train_predict = algorithm.predict(X_train_norm, trained_model)
+                    Y_test_predict = algorithm.predict(X_test_norm, trained_model)
+                    mae_train, mae_test = analysis.compute_performance(
+                        Y_train, Y_train_predict, Y_test, Y_test_predict
+                    )
+                    print(protocol, " | ", preprocessing, " | ", algo, " | {:.3f}".format(mae_train), "/ {:.3f}".format(mae_test))
+                    print("---------------------------------------------------------------------------------------")
+        print(" ")
+
     
 if __name__ == '__main__':
     main()
