@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Python API &mdash; M05_miniProject 0.1 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Licensing" href="license.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            M05_miniProject
+              <img src="_static/Doc_image.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="results.html">Results</a></li>
+<li class="toctree-l1"><a class="reference internal" href="guide.html">User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">Licensing</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Python API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#module-src.database">Database</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#src.database.get"><code class="docutils literal notranslate"><span class="pre">get()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#src.database.load_data"><code class="docutils literal notranslate"><span class="pre">load_data()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#module-src.preprocessor">Pre-processor</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#src.preprocessor.apply_selected_preprocessing"><code class="docutils literal notranslate"><span class="pre">apply_selected_preprocessing()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#src.preprocessor.normalize_minMaxScaler"><code class="docutils literal notranslate"><span class="pre">normalize_minMaxScaler()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#src.preprocessor.normalize_polynomialFeatures"><code class="docutils literal notranslate"><span class="pre">normalize_polynomialFeatures()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#src.preprocessor.normalize_standardScaler"><code class="docutils literal notranslate"><span class="pre">normalize_standardScaler()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#module-src.algorithm">Machine Learning Algorithm</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#src.algorithm.predict"><code class="docutils literal notranslate"><span class="pre">predict()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#src.algorithm.train_model"><code class="docutils literal notranslate"><span class="pre">train_model()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#module-src.analysis">Analysis</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#src.analysis.compute_performance"><code class="docutils literal notranslate"><span class="pre">compute_performance()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#module-src.test">Testing</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">M05_miniProject</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Python API</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/api.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="python-api">
+<h1>Python API<a class="headerlink" href="#python-api" title="Permalink to this heading"></a></h1>
+<section id="module-src.database">
+<span id="database"></span><h2>Database<a class="headerlink" href="#module-src.database" title="Permalink to this heading"></a></h2>
+<p>Created on Fri Feb 17 13:44:51 2023</p>
+<p>&#64;author: Cedric</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="src.database.get">
+<span class="sig-prename descclassname"><span class="pre">src.database.</span></span><span class="sig-name descname"><span class="pre">get</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dataset_config</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">protocol_config</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/database.html#get"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.database.get" title="Permalink to this definition"></a></dt>
+<dd><p>Split the data for the dataset, according to the given protocol</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>dataset_config</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – define which dataset to load (ex: boston_dataset)</p></li>
+<li><p><strong>protocol_config</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – define which protocol to apply (ex: 50-50 -&gt; 50% / 50% )</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>X_train, X_test, Y_train, Y_test
+The value due to the repartitions in the train and the test</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.11)">tuple</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.database.load_data">
+<span class="sig-prename descclassname"><span class="pre">src.database.</span></span><span class="sig-name descname"><span class="pre">load_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dataset_config</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/database.html#load_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.database.load_data" title="Permalink to this definition"></a></dt>
+<dd><p>Loads the data according to the given configuration</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>dataset_config</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – define which dataset to load between the Boston housing or the Wine quality, red or white</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>X, Y
+X is the datas without the results column
+Y is the results column of the datas (ex: Price, quality)</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.11)">tuple</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-src.preprocessor">
+<span id="pre-processor"></span><h2>Pre-processor<a class="headerlink" href="#module-src.preprocessor" title="Permalink to this heading"></a></h2>
+<p>Created on Fri Feb 17 20:33:56 2023</p>
+<p>&#64;author: Cedric</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="src.preprocessor.apply_selected_preprocessing">
+<span class="sig-prename descclassname"><span class="pre">src.preprocessor.</span></span><span class="sig-name descname"><span class="pre">apply_selected_preprocessing</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">selected_preprocessing</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_to_process</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/preprocessor.html#apply_selected_preprocessing"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.preprocessor.apply_selected_preprocessing" title="Permalink to this definition"></a></dt>
+<dd><p>apply given preprocessing type on the data</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>selected_preprocessing</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – gives which preprocess is selected (min_max, standard or polynomial)</p></li>
+<li><p><strong>data_to_process</strong> (<em>DataFrame</em>) – It is the data to process (the X)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>processedData
+returns the data processed with the selected normalization</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>DataFrame</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.preprocessor.normalize_minMaxScaler">
+<span class="sig-prename descclassname"><span class="pre">src.preprocessor.</span></span><span class="sig-name descname"><span class="pre">normalize_minMaxScaler</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data_to_process</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/preprocessor.html#normalize_minMaxScaler"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.preprocessor.normalize_minMaxScaler" title="Permalink to this definition"></a></dt>
+<dd><p>min max scaler normalization</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>data_to_process</strong> (<em>DataFrame</em>) – It is the data to process (the X)</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>processedData
+returns the data processed with the min max scaler normalization</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>DataFrame</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.preprocessor.normalize_polynomialFeatures">
+<span class="sig-prename descclassname"><span class="pre">src.preprocessor.</span></span><span class="sig-name descname"><span class="pre">normalize_polynomialFeatures</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data_to_process</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">polyDegree</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/preprocessor.html#normalize_polynomialFeatures"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.preprocessor.normalize_polynomialFeatures" title="Permalink to this definition"></a></dt>
+<dd><p>polynomial normalization</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data_to_process</strong> (<em>DataFrame</em>) – It is the data to process (the X)</p></li>
+<li><p><strong>polyDegree</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – The degree of the polynomial used in the normalization</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>processedData
+returns the data processed with the polynomial normalization</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>DataFrame</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.preprocessor.normalize_standardScaler">
+<span class="sig-prename descclassname"><span class="pre">src.preprocessor.</span></span><span class="sig-name descname"><span class="pre">normalize_standardScaler</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data_to_process</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/preprocessor.html#normalize_standardScaler"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.preprocessor.normalize_standardScaler" title="Permalink to this definition"></a></dt>
+<dd><p>standard scaler normalization</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>data_to_process</strong> (<em>DataFrame</em>) – It is the data to process (the X)</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>processedData
+returns the data processed with the standard scaler normalization</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>DataFrame</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-src.algorithm">
+<span id="machine-learning-algorithm"></span><h2>Machine Learning Algorithm<a class="headerlink" href="#module-src.algorithm" title="Permalink to this heading"></a></h2>
+<p>Created on Sat Feb 18 11:36:37 2023</p>
+<p>&#64;author: Cedric</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="src.algorithm.predict">
+<span class="sig-prename descclassname"><span class="pre">src.algorithm.</span></span><span class="sig-name descname"><span class="pre">predict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">trained_model</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/algorithm.html#predict"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.algorithm.predict" title="Permalink to this definition"></a></dt>
+<dd><p>Best fit for the input data according to the trained model</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>X</strong> (<em>DataFrame</em>) – The data to use for the predicting the best fit</p></li>
+<li><p><strong>trained_model</strong> (<em>Object</em>) – The model used to fit the datas</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Y
+Returns predicted values</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>array</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.algorithm.train_model">
+<span class="sig-prename descclassname"><span class="pre">src.algorithm.</span></span><span class="sig-name descname"><span class="pre">train_model</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">X_train</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Y_train</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/algorithm.html#train_model"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.algorithm.train_model" title="Permalink to this definition"></a></dt>
+<dd><p>Optimizes the machine parameters to fit the input data</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>model</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – Gives the machine learning model to apply</p></li>
+<li><p><strong>X_train</strong> (<em>DataFrame</em>) – Gives the data to train on it</p></li>
+<li><p><strong>Y_train</strong> (<em>array</em>) – It is the exact that must be reached as best as possible by the model</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>trained_model
+Returns the datas fitted with the selected machine learning algorithm</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>self</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-src.analysis">
+<span id="analysis"></span><h2>Analysis<a class="headerlink" href="#module-src.analysis" title="Permalink to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="src.analysis.compute_performance">
+<span class="sig-prename descclassname"><span class="pre">src.analysis.</span></span><span class="sig-name descname"><span class="pre">compute_performance</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Y_train</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Y_train_predict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Y_test</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Y_test_predict</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/analysis.html#compute_performance"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.analysis.compute_performance" title="Permalink to this definition"></a></dt>
+<dd><p>Computes the MAE of the given train and test datasets</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>Y_train</strong> (<em>array</em>) – The results that were used in the train</p></li>
+<li><p><strong>Y__train_predict</strong> (<em>array</em>) – The results that were predicted by the train</p></li>
+<li><p><strong>Y_test</strong> (<em>array</em>) – The results that were used in the test</p></li>
+<li><p><strong>Y_test_predict</strong> (<em>array</em>) – The results that were predicted by the test</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>mae_train, mae_test
+compute the mean absilute error in the train and test between the exact results and what was predicted</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.11)">tuple</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-src.test">
+<span id="testing"></span><h2>Testing<a class="headerlink" href="#module-src.test" title="Permalink to this heading"></a></h2>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="license.html" class="btn btn-neutral float-left" title="Licensing" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Cedric Lienhard &amp; Mustapha Al-Dabboussi.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

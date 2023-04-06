@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>User Guide &mdash; M05_miniProject 0.1 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Licensing" href="license.html" />
+    <link rel="prev" title="Results" href="results.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            M05_miniProject
+              <img src="_static/Doc_image.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="results.html">Results</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">User Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#general-use">General Use</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#arguments-description">Arguments Description</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#dataset">Dataset</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#protocol">Protocol</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#preprocessing-algorithms">Preprocessing Algorithms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#machine-learning-algorithm">Machine Learning Algorithm</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">Licensing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">Python API</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">M05_miniProject</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">User Guide</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/guide.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="user-guide">
+<h1>User Guide<a class="headerlink" href="#user-guide" title="Permalink to this heading"></a></h1>
+<section id="general-use">
+<h2>General Use<a class="headerlink" href="#general-use" title="Permalink to this heading"></a></h2>
+<p>This guide explains how to use this package and obtain the same results as shown in the <a class="reference internal" href="results.html#results"><span class="std std-ref">Results</span></a> section.</p>
+<p>The main function can be called with different arguments, that can be shown by typing:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="o">(</span>project<span class="o">)</span><span class="w"> </span>$<span class="w"> </span>python<span class="w"> </span>-m<span class="w"> </span>src.main<span class="w"> </span>--help
+</pre></div>
+</div>
+<p>Which should output the following :</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>usage:<span class="w"> </span>main.py<span class="w"> </span><span class="o">[</span>-h<span class="o">]</span><span class="w"> </span><span class="o">[</span>--dataset<span class="w"> </span><span class="o">{</span>boston_dataset,wine_white_dataset,wine_red_dataset,all_datasets<span class="o">}]</span><span class="w"> </span><span class="o">[</span>--protocol<span class="w"> </span><span class="o">{</span>p50_50,p70_30,p90_10,all_protocols<span class="o">}]</span>
+<span class="w">            </span><span class="o">[</span>--preprocessing<span class="w"> </span><span class="o">{</span>min_max_scaler,standard_scaler,polynomial_features,all_preprocessings<span class="o">}]</span><span class="w"> </span><span class="o">[</span>--ml_model<span class="w"> </span><span class="o">{</span>linear_regression,regression_trees,all_models<span class="o">}]</span>
+
+optional<span class="w"> </span>arguments:
+<span class="w">  </span>-h,<span class="w"> </span>--help<span class="w">         </span>show<span class="w"> </span>this<span class="w"> </span><span class="nb">help</span><span class="w"> </span>message<span class="w"> </span>and<span class="w"> </span><span class="nb">exit</span>
+<span class="w">  </span>--dataset<span class="w"> </span><span class="o">{</span>boston_dataset,wine_white_dataset,wine_red_dataset,all_datasets<span class="o">}</span>
+<span class="w">                     </span>Name<span class="w"> </span>of<span class="w"> </span>the<span class="w"> </span>dataset<span class="w"> </span>to<span class="w"> </span>use
+<span class="w">  </span>--protocol<span class="w"> </span><span class="o">{</span>p50_50,p70_30,p90_10,all_protocols<span class="o">}</span>
+<span class="w">                     </span>Name<span class="w"> </span>of<span class="w"> </span>the<span class="w"> </span>protocol<span class="w"> </span>to<span class="w"> </span>use
+<span class="w">  </span>--preprocessing<span class="w"> </span><span class="o">{</span>min_max_scaler,standard_scaler,polynomial_features,all_preprocessings<span class="o">}</span>
+<span class="w">                     </span>Name<span class="w"> </span>of<span class="w"> </span>the<span class="w"> </span>preprocessing<span class="w"> </span>algorithm<span class="w"> </span>to<span class="w"> </span>use
+<span class="w">  </span>--ml_model<span class="w"> </span><span class="o">{</span>linear_regression,regression_trees,all_models<span class="o">}</span>
+<span class="w">                     </span>Name<span class="w"> </span>of<span class="w"> </span>the<span class="w"> </span>machine<span class="w"> </span>learning<span class="w"> </span>algorithm<span class="w"> </span>to<span class="w"> </span>use
+</pre></div>
+</div>
+<p>As shown in the help message, the main.py function can be called with different arguments, which are:</p>
+<ul class="simple">
+<li><p>Dataset -&gt; choice between 2 datasets</p></li>
+<li><p>Protocol -&gt; choice between 3 protocols</p></li>
+<li><p>Preprocessing -&gt; choice between 3 preprocessing algorithms</p></li>
+<li><p>Machine learning algorithm -&gt; choice between 2 machine learning algorithms</p></li>
+</ul>
+<p>These different choices are described in the next section.</p>
+<p>It’s also possible to call the main.py function without any arguments. In this case, the output is a combination of all the possible choices, as shown in the ‘Result’ page.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="o">(</span>project<span class="o">)</span><span class="w"> </span>$<span class="w"> </span>python<span class="w"> </span>-m<span class="w"> </span>src.main
+</pre></div>
+</div>
+</section>
+<section id="arguments-description">
+<h2>Arguments Description<a class="headerlink" href="#arguments-description" title="Permalink to this heading"></a></h2>
+<p>Below is a description of the possible arguments to use when calling the main.py function.</p>
+<section id="dataset">
+<h3>Dataset<a class="headerlink" href="#dataset" title="Permalink to this heading"></a></h3>
+<p>There are 2 choices of datasets:</p>
+<ul class="simple">
+<li><p>Boston Housing Dataset -&gt; you can download the dataset here : <a class="reference external" href="https://archive.ics.uci.edu/ml/machine-learning-databases/housing/">https://archive.ics.uci.edu/ml/machine-learning-databases/housing/</a></p></li>
+<li><p>Wine Quality Dataset -&gt; you can download the dataset here : <a class="reference external" href="https://archive.ics.uci.edu/ml/datasets/wine+quality">https://archive.ics.uci.edu/ml/datasets/wine+quality</a></p></li>
+</ul>
+</section>
+<section id="protocol">
+<h3>Protocol<a class="headerlink" href="#protocol" title="Permalink to this heading"></a></h3>
+<p>The protocols are defined in the main.py module and define the percentage of data that is used for training and for testing, respetively.</p>
+</section>
+<section id="preprocessing-algorithms">
+<h3>Preprocessing Algorithms<a class="headerlink" href="#preprocessing-algorithms" title="Permalink to this heading"></a></h3>
+<p>There are 3 choices of preprocessing algorithms:</p>
+<ul class="simple">
+<li><p>min max scaling -&gt; more details here : <a class="reference external" href="https://scikit-learn.org/stable/modules/preprocessing.html">https://scikit-learn.org/stable/modules/preprocessing.html</a></p></li>
+<li><p>standard scaling -&gt; more details here : <a class="reference external" href="https://scikit-learn.org/stable/modules/preprocessing.html#standardization-or-mean-removal-and-variance-scaling">https://scikit-learn.org/stable/modules/preprocessing.html#standardization-or-mean-removal-and-variance-scaling</a></p></li>
+<li><p>min-max and z-normalisation scaling from a configurable set of polynomial features -&gt; more details here : <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.PolynomialFeatures.html">https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.PolynomialFeatures.html</a></p></li>
+</ul>
+</section>
+<section id="machine-learning-algorithm">
+<h3>Machine Learning Algorithm<a class="headerlink" href="#machine-learning-algorithm" title="Permalink to this heading"></a></h3>
+<p>There are 2 choices of ML algorithms:</p>
+<ul class="simple">
+<li><p>Linear Regression -&gt; more details here : <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LinearRegression.html">https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LinearRegression.html</a></p></li>
+<li><p>Regression Trees -&gt; more details here : <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.tree.DecisionTreeClassifier.html">https://scikit-learn.org/stable/modules/generated/sklearn.tree.DecisionTreeClassifier.html</a></p></li>
+</ul>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="results.html" class="btn btn-neutral float-left" title="Results" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="license.html" class="btn btn-neutral float-right" title="Licensing" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Cedric Lienhard &amp; Mustapha Al-Dabboussi.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
